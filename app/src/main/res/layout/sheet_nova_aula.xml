@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Formulário "Nova aula" que sobe de baixo (RF23.2 a RF23.6) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingStart="20dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="24dp">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_alca_sheet" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nova aula"
+            android:textColor="@color/texto_principal"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- X: fecha sem salvar (RF23.6) -->
+        <ImageView
+            android:id="@+id/btnFecharSheet"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Fechar"
+            android:padding="6dp"
+            app:srcCompat="@drawable/ic_fechar"
+            app:tint="@color/texto_secundario" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/TextAppearance.App.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Nome da aula" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilNomeAula"
+        style="@style/Widget.App.Field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:hintEnabled="false">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etNomeAula"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/field_height"
+            android:hint="Ex.: Spinning"
+            android:inputType="textCapWords"
+            android:textColor="@color/text_primary"
+            android:textSize="16sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        style="@style/TextAppearance.App.Label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="Professor" />
+
+    <!-- Lista suspensa de professores -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilProfessor"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:boxCornerRadiusBottomEnd="12dp"
+        app:boxCornerRadiusBottomStart="12dp"
+        app:boxCornerRadiusTopEnd="12dp"
+        app:boxCornerRadiusTopStart="12dp"
+        app:hintEnabled="false"
+        app:startIconDrawable="@drawable/ic_user">
+
+        <com.google.android.material.textfield.MaterialAutoCompleteTextView
+            android:id="@+id/etProfessor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Selecionar professor"
+            android:inputType="none" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.App.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horário" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHorario"
+                style="@style/Widget.App.Field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_relogio">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etHorario"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/field_height"
+                    android:focusable="false"
+                    android:hint="18:30"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/TextAppearance.App.Label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Vagas" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVagas"
+                style="@style/Widget.App.Field"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:hintEnabled="false"
+                app:startIconDrawable="@drawable/ic_pessoas">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etVagas"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/field_height"
+                    android:hint="20"
+                    android:inputType="number"
+                    android:textColor="@color/text_primary"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSalvarAula"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/azul_unifit"
+        android:text="Salvar aula"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp" />
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="110dp"
+    android:viewportWidth="360"
+    android:viewportHeight="200">
+
+    <!-- Map Base Background -->
+    <path android:pathData="M0,0h360v200H0z" android:fillColor="#F8FAFC"/>
+
+    <!-- Floor Plan Border -->
+    <path
+        android:pathData="M10,10h340v180H10z"
+        android:strokeWidth="2"
+        android:strokeColor="#CBD5E1"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- Zone Grids / Walls -->
+    <path
+        android:pathData="M120,10v180M240,10v180M10,100h340"
+        android:strokeWidth="2"
+        android:strokeColor="#E2E8F0"/>
+
+    <!-- Zone Colors -->
+    <!-- Zone 1: Musculação -->
+    <path android:pathData="M12,12h106v86H12z" android:fillColor="#EFF6FF"/>
+    <!-- Zone 2: Cardio -->
+    <path android:pathData="M122,12h116v86H122z" android:fillColor="#F0FDF4"/>
+    <!-- Zone 3: Spinning -->
+    <path android:pathData="M242,12h106v86H242z" android:fillColor="#FEF3C7"/>
+    <!-- Zone 4: Funcional -->
+    <path android:pathData="M12,102h226v86H12z" android:fillColor="#F1F5F9"/>
+    <!-- Zone 5: Vestiários -->
+    <path android:pathData="M242,102h106v86H242z" android:fillColor="#F8FAFC"/>
+
+    <!-- Pins and Zone Badges -->
+    <!-- Pin 1 - Musculação -->
+    <path android:pathData="M35,28c-3.3,0 -6,2.7 -6,6c0,4.5 6,10 6,10s6,-5.5 6,-10c0,-3.3 -2.7,-6 -6,-6z" android:fillColor="#0052CC"/>
+    <path android:pathData="M35,32a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" android:fillColor="#FFFFFF"/>
+
+    <!-- Pin 2 - Cardio -->
+    <path android:pathData="M150,28c-3.3,0 -6,2.7 -6,6c0,4.5 6,10 6,10s6,-5.5 6,-10c0,-3.3 -2.7,-6 -6,-6z" android:fillColor="#16A34A"/>
+    <path android:pathData="M150,32a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" android:fillColor="#FFFFFF"/>
+
+    <!-- Pin 3 - Spinning -->
+    <path android:pathData="M270,28c-3.3,0 -6,2.7 -6,6c0,4.5 6,10 6,10s6,-5.5 6,-10c0,-3.3 -2.7,-6 -6,-6z" android:fillColor="#D97706"/>
+    <path android:pathData="M270,32a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" android:fillColor="#FFFFFF"/>
+
+    <!-- Pin 4 - Funcional -->
+    <path android:pathData="M60,120c-3.3,0 -6,2.7 -6,6c0,4.5 6,10 6,10s6,-5.5 6,-10c0,-3.3 -2.7,-6 -6,-6z" android:fillColor="#475569"/>
+    <path android:pathData="M60,124a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" android:fillColor="#FFFFFF"/>
+
+    <!-- Pin 5 - Vestiários -->
+    <path android:pathData="M280,120c-3.3,0 -6,2.7 -6,6c0,4.5 6,10 6,10s6,-5.5 6,-10c0,-3.3 -2.7,-6 -6,-6z" android:fillColor="#64748B"/>
+    <path android:pathData="M280,124a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" android:fillColor="#FFFFFF"/>
+</vector>

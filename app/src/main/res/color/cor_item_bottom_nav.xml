@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Azul no item selecionado, cinza nos demais -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="@color/azul_unifit" android:state_checked="true" />
+    <item android:color="@color/texto_secundario" />
+</selector>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Card escuro (pré-visualização com alto contraste) -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/fundo_escuro" />
+    <corners android:radius="16dp" />
+</shape>

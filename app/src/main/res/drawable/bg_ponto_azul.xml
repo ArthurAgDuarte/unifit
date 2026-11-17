@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Bolinha azul de não lida -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/azul_unifit" />
+    <size android:width="10dp" android:height="10dp" />
+</shape>

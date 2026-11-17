@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Card de um exercício na tela de detalhe -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/bg_card_branco"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="14dp">
+
+    <!-- Foto do exercício -->
+    <ImageView
+        android:id="@+id/imgExercicio"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="@drawable/bg_miniatura"
+        android:clipToOutline="true"
+        android:contentDescription="Foto do exercício"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/foto_exercicio" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="14dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNomeExercicio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Supino reto com barra"
+            android:textColor="@color/texto_principal"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtSeriesExercicio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="4 × 10 • 60 kg"
+            android:textColor="@color/texto_secundario"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Botão de play (vídeo do exercício) -->
+    <ImageView
+        android:id="@+id/btnPlay"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_circulo_azul_claro"
+        android:contentDescription="Ver vídeo do exercício"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_play" />
+
+</LinearLayout>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Remove a "pílula" de fundo do item selecionado no menu inferior -->
+    <style name="IndicadorTransparente" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
+        <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <!-- Texto do menu inferior -->
+    <style name="TextoBottomNav" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!-- ===== Vindo de: Detalhe do Espaço ===== -->
+    <style name="ShapeAppearance.App.RoundedCorner16dp" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- ===== Vindo de: Mapa acad ===== -->
+    <style name="ShapeAppearance.App.Corner16" parent="ShapeAppearance.Material3.Corner.Medium">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+    <!-- ===== Vindo de: UniFit - Gustavo ===== -->
+    <style name="Widget.App.Field" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxCornerRadiusTopStart">@dimen/field_radius</item>
+        <item name="boxCornerRadiusTopEnd">@dimen/field_radius</item>
+        <item name="boxCornerRadiusBottomStart">@dimen/field_radius</item>
+        <item name="boxCornerRadiusBottomEnd">@dimen/field_radius</item>
+        <item name="boxStrokeColor">@color/field_stroke</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="boxStrokeWidthFocused">2dp</item>
+        <item name="boxBackgroundColor">@color/field_bg</item>
+        <item name="startIconTint">@color/text_secondary</item>
+        <item name="endIconTint">@color/text_secondary</item>
+    </style>
+    <style name="TextAppearance.App.Label" parent="TextAppearance.Material3.LabelLarge">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

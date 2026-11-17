@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".OnboardingActivity">
+
+    <!-- Logo pequeno do topo -->
+    <ImageView
+        android:id="@+id/imgLogoTopo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_logo_pequeno"
+        android:contentDescription="Logo UniFit"
+        android:padding="6dp"
+        app:srcCompat="@drawable/ic_haltere"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Nome do app -->
+    <TextView
+        android:id="@+id/txtNomeApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="UniFit"
+        android:textColor="@color/texto_principal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintStart_toEndOf="@id/imgLogoTopo" />
+
+    <!-- Botão Pular -->
+    <TextView
+        android:id="@+id/btnPular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:background="?attr/selectableItemBackground"
+        android:padding="8dp"
+        android:text="Pular"
+        android:textColor="@color/texto_secundario"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Card da ilustração -->
+    <FrameLayout
+        android:id="@+id/cardIlustracao"
+        android:layout_width="0dp"
+        android:layout_height="340dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_card_ilustracao"
+        app:layout_constraintTop_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Círculo azul com o ícone da página -->
+        <ImageView
+            android:id="@+id/imgIlustracao"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_circulo_azul"
+            android:contentDescription="Ilustração"
+            android:padding="40dp"
+            app:srcCompat="@drawable/ic_haltere" />
+
+    </FrameLayout>
+
+    <!-- Título da página -->
+    <TextView
+        android:id="@+id/txtTituloOnboarding"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="Organize seus treinos"
+        android:textColor="@color/texto_principal"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/cardIlustracao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Descrição da página -->
+    <TextView
+        android:id="@+id/txtDescricao"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Monte sua ficha, acompanhe séries, cargas e evolua a cada semana."
+        android:textColor="@color/texto_secundario"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/txtTituloOnboarding"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Indicadores de página (bolinhas) -->
+    <LinearLayout
+        android:id="@+id/layoutIndicadores"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/txtDescricao"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <View
+            android:id="@+id/indicador1"
+            android:layout_width="24dp"
+            android:layout_height="8dp"
+            android:background="@drawable/bg_indicador_ativo" />
+
+        <View
+            android:id="@+id/indicador2"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_indicador_inativo" />
+
+        <View
+            android:id="@+id/indicador3"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_indicador_inativo" />
+
+    </LinearLayout>
+
+    <!-- Botão principal -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnComecar"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/azul_unifit"
+        android:text="Próximo"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

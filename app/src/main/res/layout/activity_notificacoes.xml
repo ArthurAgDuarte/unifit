@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".NotificacoesActivity">
+
+    <!-- Logo pequeno do topo -->
+    <ImageView
+        android:id="@+id/imgLogoTopo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_logo_pequeno"
+        android:contentDescription="Logo UniFit"
+        android:padding="6dp"
+        app:srcCompat="@drawable/ic_haltere"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/txtTituloTela"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Notificações"
+        android:textColor="@color/texto_principal"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintStart_toEndOf="@id/imgLogoTopo" />
+
+    <!-- Sino (só decorativo nesta tela) -->
+    <ImageView
+        android:id="@+id/imgSino"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="Notificações"
+        android:padding="8dp"
+        app:srcCompat="@drawable/ic_notificacao"
+        app:tint="@color/texto_principal"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Linha abaixo do topo -->
+    <View
+        android:id="@+id/divisorTopo"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/borda_card"
+        app:layout_constraintTop_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Conteúdo com rolagem -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollConteudo"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/fundo_tela"
+        app:layout_constraintTop_toBottomOf="@id/divisorTopo"
+        app:layout_constraintBottom_toTopOf="@id/divisorMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Contador de não lidas + marcar todas -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtNaoLidas"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="3 não lidas"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/btnMarcarTodas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="?attr/selectableItemBackground"
+                    android:padding="4dp"
+                    android:text="Marcar todas como lidas"
+                    android:textColor="@color/azul_unifit"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- Seção HOJE -->
+            <TextView
+                android:id="@+id/txtSecaoHoje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="HOJE"
+                android:textColor="@color/texto_secundario"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Notificações de hoje -->
+            <LinearLayout
+                android:id="@+id/layoutHoje"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Mock: aparece no preview; no app o código troca pelos dados reais -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_card_branco"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icone_notificacao"
+                        android:contentDescription="Ícone da notificação"
+                        android:padding="11dp"
+                        app:srcCompat="@drawable/ic_calendario_contorno"
+                        app:tint="@color/azul_unifit" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Aula confirmada"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Spinning hoje às 18:30 • há 10 min"
+                            android:textColor="@color/texto_secundario"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <!-- Bolinha azul de "não lida" -->
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_ponto_azul" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_card_branco"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icone_notificacao"
+                        android:contentDescription="Ícone da notificação"
+                        android:padding="11dp"
+                        app:srcCompat="@drawable/ic_gota"
+                        app:tint="@color/azul_unifit" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Hora de se hidratar"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="1,6 L de 2,5 L hoje • há 1 h"
+                            android:textColor="@color/texto_secundario"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <!-- Bolinha azul de "não lida" -->
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_ponto_azul" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_card_branco"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icone_notificacao"
+                        android:contentDescription="Ícone da notificação"
+                        android:padding="11dp"
+                        app:srcCompat="@drawable/ic_haltere"
+                        app:tint="@color/azul_unifit" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Nova ficha disponível"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Prof. Rafael atualizou seu treino • há 3 h"
+                            android:textColor="@color/texto_secundario"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <!-- Bolinha azul de "não lida" -->
+                    <View
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginStart="12dp"
+                        android:background="@drawable/bg_ponto_azul" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Seção ONTEM -->
+            <TextView
+                android:id="@+id/txtSecaoOntem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="ONTEM"
+                android:textColor="@color/texto_secundario"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!-- Notificações de ontem -->
+            <LinearLayout
+                android:id="@+id/layoutOntem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Mock: aparece no preview; no app o código troca pelos dados reais -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_card_lido"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icone_lido"
+                        android:contentDescription="Ícone da notificação"
+                        android:padding="11dp"
+                        app:srcCompat="@drawable/ic_trofeu"
+                        app:tint="@color/texto_secundario" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Conquista desbloqueada"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="5 treinos na semana • 15 set"
+                            android:textColor="@color/texto_secundario"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_card_lido"
+                    android:foreground="?attr/selectableItemBackground"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="44dp"
+                        android:layout_height="44dp"
+                        android:background="@drawable/bg_icone_lido"
+                        android:contentDescription="Ícone da notificação"
+                        android:padding="11dp"
+                        app:srcCompat="@drawable/ic_fechar"
+                        app:tint="@color/texto_secundario" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Aula cancelada"
+                            android:textColor="@color/texto_principal"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="2dp"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            android:text="Pilates das 20:30 foi cancelada • 15 set"
+                            android:textColor="@color/texto_secundario"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Linha acima do menu -->
+    <View
+        android:id="@+id/divisorMenu"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/borda_card"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Menu inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        app:itemActiveIndicatorStyle="@style/IndicadorTransparente"
+        app:itemIconTint="@color/cor_item_bottom_nav"
+        app:itemTextAppearanceActive="@style/TextoBottomNav"
+        app:itemTextAppearanceInactive="@style/TextoBottomNav"
+        app:itemTextColor="@color/cor_item_bottom_nav"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

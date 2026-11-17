@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Um chip de filtro (Todas, Spinning, 7 dias, Ativos...) -->
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/txtChip"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:background="@drawable/bg_chip_normal"
+    android:paddingStart="18dp"
+    android:paddingTop="9dp"
+    android:paddingEnd="18dp"
+    android:paddingBottom="9dp"
+    android:text="Todas"
+    android:textColor="@color/texto_principal"
+    android:textSize="14sp"
+    android:textStyle="bold" />

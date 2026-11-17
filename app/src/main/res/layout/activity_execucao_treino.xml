@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".ExecucaoTreinoActivity">
+
+    <!-- Botão fechar (encerrar treino) -->
+    <ImageView
+        android:id="@+id/btnFechar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/bg_circulo_cinza"
+        android:contentDescription="Encerrar treino"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_fechar"
+        app:tint="@color/texto_principal"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Nome da ficha -->
+    <TextView
+        android:id="@+id/txtNomeFicha"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="20dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="Treino A — Peito e Tríceps"
+        android:textColor="@color/texto_principal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="@id/btnFechar"
+        app:layout_constraintBottom_toBottomOf="@id/btnFechar"
+        app:layout_constraintStart_toEndOf="@id/btnFechar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Barra de progresso do treino todo -->
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressoTreino"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        app:indicatorColor="@color/azul_unifit"
+        app:trackColor="@color/azul_claro"
+        app:trackCornerRadius="4dp"
+        app:trackThickness="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btnFechar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtProgresso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Exercício 1 de 8"
+        android:textColor="@color/texto_secundario"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/progressoTreino"
+        app:layout_constraintStart_toStartOf="@id/progressoTreino" />
+
+    <!-- Foto do exercício -->
+    <ImageView
+        android:id="@+id/imgExercicio"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/bg_miniatura"
+        android:clipToOutline="true"
+        android:contentDescription="Foto do exercício"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/foto_exercicio"
+        app:layout_constraintTop_toBottomOf="@id/txtProgresso"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtNomeExercicio"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="Supino reto com barra"
+        android:textColor="@color/texto_principal"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/imgExercicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtSerie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Série 1 de 4"
+        android:textColor="@color/azul_unifit"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/txtNomeExercicio"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/txtRepeticoesCarga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="10 repetições • 60 kg"
+        android:textColor="@color/texto_secundario"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/txtSerie"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Card de descanso (aparece entre as séries) -->
+    <LinearLayout
+        android:id="@+id/layoutDescanso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_card_dica"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/txtRepeticoesCarga"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DESCANSO"
+            android:textColor="@color/azul_texto_dica"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtTempoDescanso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01:00"
+            android:textColor="@color/azul_unifit"
+            android:textSize="44sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnPularDescanso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:padding="6dp"
+            android:text="Pular descanso"
+            android:textColor="@color/azul_unifit"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <!-- Botão principal -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConcluirSerie"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="@color/azul_unifit"
+        android:text="Concluir série"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:cornerRadius="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

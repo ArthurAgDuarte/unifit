@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Um passo numerado do "Como executar" -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/txtNumeroPasso"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:background="@drawable/bg_numero_passo"
+        android:gravity="center"
+        android:text="1"
+        android:textColor="@color/azul_unifit"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPasso"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_weight="1"
+        android:lineSpacingExtra="2dp"
+        android:text="Deite no banco com os pés firmes no chão e escápulas encaixadas."
+        android:textColor="@color/texto_secundario"
+        android:textSize="14sp" />
+
+</LinearLayout>

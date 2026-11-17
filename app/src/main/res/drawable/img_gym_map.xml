@@ -1,0 +1,76 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="100dp"
+    android:viewportWidth="360"
+    android:viewportHeight="180">
+
+    <!-- Map Background -->
+    <path android:pathData="M0,0h360v180H0z" android:fillColor="#F8FAFC"/>
+
+    <!-- Floor Outer Wall -->
+    <path
+        android:pathData="M10,10h340v160H10z"
+        android:strokeWidth="2"
+        android:strokeColor="#CBD5E1"
+        android:fillColor="#FFFFFF"/>
+
+    <!-- Zone Dividers (Grid Plan) -->
+    <!-- Vertical Wall -->
+    <path
+        android:pathData="M130,10v160M240,10v100"
+        android:strokeWidth="2"
+        android:strokeColor="#E2E8F0"/>
+    <!-- Horizontal Wall -->
+    <path
+        android:pathData="M10,90h120M130,110h220"
+        android:strokeWidth="2"
+        android:strokeColor="#E2E8F0"/>
+
+    <!-- Zone Fill Colors -->
+    <!-- Zone 1: Musculação (Highlight Area) -->
+    <path
+        android:pathData="M12,12h116v76H12z"
+        android:fillColor="#EFF6FF"/>
+
+    <!-- Zone 2: Cardio -->
+    <path
+        android:pathData="M12,92h116v76H12z"
+        android:fillColor="#F1F5F9"/>
+
+    <!-- Zone 3: Halteres & Aparelhos -->
+    <path
+        android:pathData="M132,12h106v96H132z"
+        android:fillColor="#F8FAFC"/>
+
+    <!-- Zone 4: Funcional -->
+    <path
+        android:pathData="M132,112h216v56H132z"
+        android:fillColor="#F1F5F9"/>
+
+    <!-- Equipment Icons / Rectangles on Map -->
+    <!-- Leg Press Pin 1 Area -->
+    <path
+        android:pathData="M30,30h35v30H30z"
+        android:fillColor="#2563EB"/>
+
+    <!-- Other Equipment Markers -->
+    <path android:pathData="M80,30h30v20H80z" android:fillColor="#94A3B8"/>
+    <path android:pathData="M30,110h25v35H30z" android:fillColor="#CBD5E1"/>
+    <path android:pathData="M70,110h25v35H70z" android:fillColor="#CBD5E1"/>
+    <path android:pathData="M160,30h40v20H160z" android:fillColor="#CBD5E1"/>
+    <path android:pathData="M160,65h40v20H160z" android:fillColor="#CBD5E1"/>
+
+    <!-- Pin 1 Map Indicator Beacon (Pulse effect) -->
+    <path
+        android:pathData="M47.5,20 A20,20 0 1,1 47.4,20"
+        android:fillColor="#3B82F6"
+        android:fillAlpha="0.2"/>
+
+    <!-- Pin 1 Location Marker Drop -->
+    <path
+        android:pathData="M47.5,28c-4.4,0 -8,3.6 -8,8c0,6 8,14 8,14s8,-8 8,-14c0,-4.4 -3.6,-8 -8,-8z"
+        android:fillColor="#EF4444"/>
+    <path
+        android:pathData="M47.5,33a3,3 0 1,0 0,6a3,3 0 1,0 0,-6z"
+        android:fillColor="#FFFFFF"/>
+</vector>

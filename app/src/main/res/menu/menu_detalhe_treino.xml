@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/opcao_adicionar_exercicio"
+        android:title="Adicionar exercício" />
+    <item
+        android:id="@+id/opcao_editar_ficha"
+        android:title="Editar ficha" />
+    <item
+        android:id="@+id/opcao_excluir_ficha"
+        android:title="Excluir ficha" />
+</menu>

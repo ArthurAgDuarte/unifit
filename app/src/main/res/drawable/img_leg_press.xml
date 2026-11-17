@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="120dp"
+    android:viewportWidth="400"
+    android:viewportHeight="240">
+
+    <!-- Dark Gym Ambient Background -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M0,0h400v240h-400z" />
+
+    <!-- Gym Lighting / Wall Structure -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M0,0h400v120l-200,60l-200,-60z" />
+
+    <!-- Neon Accent Glow Lines in Background -->
+    <path
+        android:strokeColor="#1E3A8A"
+        android:strokeWidth="2"
+        android:pathData="M0,40 L400,40 M0,80 L400,80 M0,120 L400,120" />
+
+    <!-- Main Machine Frame (45 Degree Steel Rails) -->
+    <path
+        android:strokeColor="#334155"
+        android:strokeWidth="16"
+        android:strokeLineCap="round"
+        android:pathData="M50,210 L310,40" />
+    <path
+        android:strokeColor="#64748B"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:pathData="M50,210 L310,40" />
+
+    <path
+        android:strokeColor="#334155"
+        android:strokeWidth="16"
+        android:strokeLineCap="round"
+        android:pathData="M90,225 L340,65" />
+    <path
+        android:strokeColor="#64748B"
+        android:strokeWidth="8"
+        android:strokeLineCap="round"
+        android:pathData="M90,225 L340,65" />
+
+    <!-- Machine Base Stand -->
+    <path
+        android:fillColor="#1E293B"
+        android:strokeColor="#475569"
+        android:strokeWidth="3"
+        android:pathData="M30,220 L120,220 L100,180 L40,180 Z" />
+
+    <!-- Foot Platform (Top Right at 45 deg) -->
+    <path
+        android:fillColor="#334155"
+        android:strokeColor="#0EA5E9"
+        android:strokeWidth="3"
+        android:pathData="M280,75 L335,20 L350,35 L295,90 Z" />
+    <!-- Tread Lines on Platform -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="2"
+        android:pathData="M295,65 L325,35 M302,72 L332,42 M310,80 L340,50" />
+
+    <!-- Sliding Carriage / Sled -->
+    <path
+        android:fillColor="#0F172A"
+        android:strokeColor="#2563EB"
+        android:strokeWidth="3"
+        android:pathData="M150,140 L220,85 L250,115 L180,170 Z" />
+
+    <!-- Seat & Adjustable Backrest -->
+    <path
+        android:fillColor="#1E293B"
+        android:strokeColor="#3B82F6"
+        android:strokeWidth="2"
+        android:pathData="M80,190 L140,145 L160,165 L100,210 Z" />
+    <path
+        android:fillColor="#3B82F6"
+        android:pathData="M85,192 L135,150 L142,158 L92,200 Z" />
+
+    <!-- Weight Horn / Barbell Post -->
+    <path
+        android:strokeColor="#94A3B8"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M200,90 L260,45" />
+
+    <!-- Weight Plates - Heavy Iron Discs stacked -->
+    <!-- Outer Large Plate 20kg -->
+    <path
+        android:fillColor="#020617"
+        android:strokeColor="#334155"
+        android:strokeWidth="3"
+        android:pathData="M235,65 m-30,0 a30,30 0 1,0 60,0 a30,30 0 1,0 -60,0" />
+    <path
+        android:fillColor="#2563EB"
+        android:pathData="M235,65 m-22,0 a22,22 0 1,0 44,0 a22,22 0 1,0 -44,0" />
+    <!-- Inner Medium Plate 10kg -->
+    <path
+        android:fillColor="#0F172A"
+        android:strokeColor="#475569"
+        android:strokeWidth="2"
+        android:pathData="M245,57 m-22,0 a22,22 0 1,0 44,0 a22,22 0 1,0 -44,0" />
+    <path
+        android:fillColor="#38BDF8"
+        android:pathData="M245,57 m-15,0 a15,15 0 1,0 30,0 a15,15 0 1,0 -30,0" />
+
+    <!-- Athlete Body Silhouette / Legs on Leg Press -->
+    <!-- Torso on backrest -->
+    <path
+        android:strokeColor="#0EA5E9"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M95,195 L140,155" />
+    <!-- Thighs bent towards platform -->
+    <path
+        android:strokeColor="#38BDF8"
+        android:strokeWidth="12"
+        android:strokeLineCap="round"
+        android:pathData="M140,155 L190,110" />
+    <!-- Lower Legs extended to platform -->
+    <path
+        android:strokeColor="#7DD3FC"
+        android:strokeWidth="10"
+        android:strokeLineCap="round"
+        android:pathData="M190,110 L295,55" />
+
+    <!-- Safety Handles -->
+    <path
+        android:strokeColor="#F59E0B"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:pathData="M110,205 L130,190" />
+
+    <!-- Bottom Floor Shadow & Glow -->
+    <path
+        android:fillColor="#020617"
+        android:pathData="M0,215h400v25h-400z" />
+    <path
+        android:strokeColor="#2563EB"
+        android:strokeWidth="2"
+        android:pathData="M20,225 L380,225" />
+</vector>

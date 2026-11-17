@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.UniFit">
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".TreinosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalheTreinoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExecucaoTreinoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AulasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NotificacoesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AcessibilidadeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditarDadosActivity"
+            android:exported="false" />
+        <!-- Telas que faltavam (protótipo do PDF) -->
+        <activity
+            android:name=".DetalheExercicioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetalheAulaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".HistoricoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".IndicadoresSaudeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GerenciarUsuariosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GerenciarAulasActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ExerciciosAparelhosActivity"
+            android:exported="false" />
+        <!-- ===== Telas dos colegas (ainda sem navegação) ===== -->
+        <!-- UniFit - Gustavo -->
+        <activity
+            android:name=".SignUpActivity"
+            android:exported="false" />
+        <!-- Unifit - Celina -->
+        <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <!-- Unifit - Celina -->
+        <activity
+            android:name=".LoginActivity"
+            android:exported="false" />
+        <!-- Unifit - Celina -->
+        <activity
+            android:name=".ReservasActivity"
+            android:exported="false" />
+        <!-- Detalhe do Espaço -->
+        <activity
+            android:name=".DetalheEspacoActivity"
+            android:exported="false"
+            android:theme="@style/Theme.UniFit.Espaco" />
+        <!-- Mapa acad -->
+        <activity
+            android:name=".MapaAcademiaActivity"
+            android:exported="false"
+            android:theme="@style/Theme.UniFit.MapaAcademia" />
+        <!-- Tela Recuperar Senha -->
+        <activity
+            android:name=".RecuperarSenhaActivity"
+            android:exported="false" />
+        <!-- GymBot IA -->
+        <activity
+            android:name=".GymBotActivity"
+            android:exported="false" />
+        <!-- DashBoard ADM -->
+        <activity
+            android:name=".DashboardAdmActivity"
+            android:exported="false" />
+        <!-- Acompanhamento de Progresso -->
+        <activity
+            android:name=".ProgressoActivity"
+            android:exported="false" />
+
+    </application>
+
+</manifest>

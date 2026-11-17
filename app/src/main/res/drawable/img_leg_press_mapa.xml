@@ -1,0 +1,61 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="110dp"
+    android:viewportWidth="400"
+    android:viewportHeight="220">
+
+    <!-- Background Dark Gradient Surface -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M0,0h400v220H0z" />
+
+    <!-- Gym Rack & Floor Grid Lines -->
+    <path
+        android:pathData="M20,190h360M20,200h360"
+        android:strokeWidth="1"
+        android:strokeColor="#1E293B"/>
+
+    <!-- Background Gym Equipment Silhouettes -->
+    <path
+        android:fillColor="#1E293B"
+        android:pathData="M30,50h20v140H30zM70,70h15v120H70zM350,50h20v140h-20z"/>
+
+    <!-- Barbell / Machine Structure -->
+    <!-- Metal Frame -->
+    <path
+        android:fillColor="#334155"
+        android:pathData="M110,180l80,-110h40l80,110h-30l-65,-90l-65,90z"/>
+
+    <path
+        android:fillColor="#475569"
+        android:pathData="M140,180l50,-70h40l50,70h-20l-40,-55l-40,55z"/>
+
+    <!-- Slanted Sled Base (Leg Press 45 Slider) -->
+    <path
+        android:fillColor="#0284C7"
+        android:pathData="M165,115l70,0l15,20l-100,0z"/>
+
+    <!-- Seat & Backrest Pad -->
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M130,175l35,-50l15,10l-35,50z"/>
+    <path
+        android:fillColor="#0F172A"
+        android:pathData="M100,180l35,-10l10,10l-35,10z"/>
+
+    <!-- Weight Plates (Bumper Plates) -->
+    <!-- Left Stack -->
+    <path android:fillColor="#0F172A" android:pathData="M185,105h12v40h-12z"/>
+    <path android:fillColor="#2563EB" android:pathData="M178,100h7v50h-7z"/>
+    <path android:fillColor="#0284C7" android:pathData="M170,95h8v60h-8z"/>
+    <path android:fillColor="#475569" android:pathData="M162,90h8v70h-8z"/>
+
+    <!-- Right Stack -->
+    <path android:fillColor="#0F172A" android:pathData="M203,105h12v40h-12z"/>
+    <path android:fillColor="#2563EB" android:pathData="M215,100h7v50h-7z"/>
+    <path android:fillColor="#0284C7" android:pathData="M222,95h8v60h-8z"/>
+    <path android:fillColor="#475569" android:pathData="M230,90h8v70h-8z"/>
+
+    <!-- Center Pin & Metallic Bar -->
+    <path android:fillColor="#94A3B8" android:pathData="M155,123h90v4h-90z"/>
+</vector>

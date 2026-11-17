@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Cores do UniFit -->
+    <color name="azul_unifit">#0B4DA2</color>
+    <color name="azul_claro">#E6EDF8</color>
+    <color name="texto_principal">#1A1A1A</color>
+    <color name="texto_secundario">#6B7280</color>
+    <color name="cinza_indicador">#E5E7EB</color>
+
+    <!-- Telas de treino -->
+    <color name="fundo_tela">#F5F6F8</color>
+    <color name="borda_card">#E5E7EB</color>
+    <color name="cinza_botao">#F1F2F4</color>
+    <color name="fundo_miniatura">#1F2937</color>
+    <color name="verde_hoje_fundo">#DCFCE7</color>
+    <color name="verde_hoje_texto">#16A34A</color>
+    <color name="azul_texto_dica">#3B6CB5</color>
+    <color name="vermelho">#DC2626</color>
+
+    <!-- Acessibilidade -->
+    <color name="fundo_escuro">#1C1C1E</color>
+    <color name="contraste_texto_secundario">#1F2937</color>
+
+    <!-- Telas novas (exercício, aulas, saúde, admin) -->
+    <color name="vermelho_claro">#FDE8E8</color>
+    <color name="verde_status">#22C55E</color>
+    <color name="vermelho_status">#EF4444</color>
+    <color name="amarelo">#E0A800</color>
+    <color name="amarelo_claro">#FEF3C7</color>
+
+    <!-- ===== Vindo de: Acompanhamento de Progresso ===== -->
+    <color name="primary_blue_progresso">#0052CC</color>
+    <color name="primary_blue_light">#E8F0FE</color>
+    <color name="background_gray">#FAFAFA</color>
+    <color name="trend_green">#16A34A</color>
+    <color name="badge_yellow_bg">#FEF3C7</color>
+    <color name="badge_yellow_icon">#D97706</color>
+    <color name="badge_red_bg">#FEE2E2</color>
+    <color name="badge_red_icon">#EF4444</color>
+    <color name="badge_green_bg">#DCFCE7</color>
+    <color name="badge_green_icon">#10B981</color>
+
+    <!-- ===== Vindo de: DashBoard ADM ===== -->
+    <color name="bg_app_adm">#F8FAFC</color>
+    <color name="text_primary_adm">#0F172A</color>
+    <color name="text_secondary_adm">#64748B</color>
+    <color name="blue_primary_adm">#2563EB</color>
+    <color name="blue_dark">#1D4ED8</color>
+    <color name="blue_light_bg">#EFF6FF</color>
+    <color name="green_positive">#16A34A</color>
+    <color name="amber_warning">#D97706</color>
+    <color name="red_alert">#DC2626</color>
+    <color name="card_stroke_adm">#E2E8F0</color>
+    <color name="chevron_color">#94A3B8</color>
+
+    <!-- ===== Vindo de: Detalhe do Espaço ===== -->
+    <color name="bg_main">#F8F9FA</color>
+    <color name="card_stroke">#E5E7EB</color>
+    <color name="primary_blue">#1D4ED8</color>
+    <color name="badge_green">#16A34A</color>
+    <color name="divider_color">#F3F4F6</color>
+
+    <!-- ===== Vindo de: GymBot IA ===== -->
+    <color name="primary_blue_gymbot">#0D52BA</color>
+    <color name="primary_blue_dark">#093C8B</color>
+    <color name="bg_app">#F4F5F7</color>
+    <color name="border_color">#E2E8F0</color>
+    <color name="text_primary_gymbot">#1E293B</color>
+    <color name="text_secondary_gymbot">#64748B</color>
+    <color name="input_bg">#F1F5F9</color>
+
+    <!-- ===== Vindo de: Mapa acad ===== -->
+    <color name="bg_screen">#F6F8FA</color>
+    <color name="card_bg">#FFFFFF</color>
+    <color name="card_border">#E2E8F0</color>
+    <color name="text_primary_mapa">#0F172A</color>
+    <color name="text_secondary_mapa">#64748B</color>
+    <color name="green_badge">#12B76A</color>
+    <color name="blue_primary">#0052CC</color>
+    <color name="gray_divider">#E2E8F0</color>
+
+    <!-- ===== Vindo de: UniFit - Gustavo ===== -->
+    <color name="primary">#0B4EA2</color>
+    <color name="text_primary">#111827</color>
+    <color name="text_secondary">#6B7280</color>
+    <color name="text_hint">#9CA3AF</color>
+    <color name="border">#E5E7EB</color>
+    <color name="field_bg">#FAFAFB</color>
+    <color name="icon_bg">#F1F2F4</color>
+    <color name="white_gustavo">#FFFFFF</color>
+    <color name="black_gustavo">#000000</color>
+</resources>

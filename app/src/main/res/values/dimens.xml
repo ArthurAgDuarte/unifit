@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ===== Vindo de: UniFit - Gustavo ===== -->
+    <dimen name="screen_padding">24dp</dimen>
+    <dimen name="field_radius">12dp</dimen>
+    <dimen name="field_height">56dp</dimen>
+</resources>

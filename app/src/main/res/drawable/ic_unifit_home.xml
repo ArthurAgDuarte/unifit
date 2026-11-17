@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="32"
+    android:viewportHeight="32">
+
+    <!-- 蓝色圆角背景 -->
+    <path
+        android:fillColor="#1558A8"
+        android:pathData="M7,2
+                          L25,2
+                          Q30,2 30,7
+                          L30,25
+                          Q30,30 25,30
+                          L7,30
+                          Q2,30 2,25
+                          L2,7
+                          Q2,2 7,2 Z" />
+
+    <!-- 白色哑铃 -->
+    <group
+        android:rotation="-45"
+        android:pivotX="16"
+        android:pivotY="16">
+
+        <!-- 中间连接杆 -->
+        <path
+            android:fillColor="@android:color/transparent"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2"
+            android:strokeLineCap="round"
+            android:pathData="M11,16 L21,16" />
+
+        <!-- 左侧哑铃片 -->
+        <path
+            android:fillColor="@android:color/transparent"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="round"
+            android:pathData="M9,11 L9,21" />
+
+        <path
+            android:fillColor="@android:color/transparent"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="round"
+            android:pathData="M6.5,13 L6.5,19" />
+
+        <!-- 右侧哑铃片 -->
+        <path
+            android:fillColor="@android:color/transparent"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="round"
+            android:pathData="M23,11 L23,21" />
+
+        <path
+            android:fillColor="@android:color/transparent"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="2.5"
+            android:strokeLineCap="round"
+            android:pathData="M25.5,13 L25.5,19" />
+
+    </group>
+
+</vector>
