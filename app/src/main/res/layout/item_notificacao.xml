@@ -2,24 +2,27 @@
 <!-- Card de uma notificação (estilo "não lida"; o código troca para cinza quando lida) -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    android:background="@drawable/bg_card_branco"
+    android:background="@drawable/bg_card_tema"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="16dp">
 
+    <!-- Ícone da categoria (o código troca o desenho e as cores) -->
     <ImageView
         android:id="@+id/imgNotificacao"
         android:layout_width="44dp"
         android:layout_height="44dp"
         android:background="@drawable/bg_icone_notificacao"
-        android:contentDescription="Ícone da notificação"
+        android:backgroundTint="?attr/corDestaqueClaro"
+        android:contentDescription="@string/icone_notificacao"
         android:padding="11dp"
         app:srcCompat="@drawable/ic_calendario_contorno"
-        app:tint="@color/azul_unifit" />
+        app:tint="?attr/corDestaque" />
 
     <LinearLayout
         android:layout_width="0dp"
@@ -34,11 +37,12 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Aula confirmada"
-            android:textColor="@color/texto_principal"
+            android:textColor="?attr/corTextoPrincipal"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Aula confirmada" />
 
+        <!-- Descrição + tempo relativo -->
         <TextView
             android:id="@+id/txtDetalheNotificacao"
             android:layout_width="match_parent"
@@ -46,18 +50,19 @@
             android:layout_marginTop="2dp"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Spinning hoje às 18:30 • há 10 min"
-            android:textColor="@color/texto_secundario"
-            android:textSize="13sp" />
+            android:textColor="?attr/corTextoSecundario"
+            android:textSize="13sp"
+            tools:text="Spinning hoje às 18:30 • há 10 min" />
 
     </LinearLayout>
 
-    <!-- Bolinha azul de "não lida" -->
+    <!-- Bolinha de "não lida" -->
     <View
         android:id="@+id/pontoNaoLida"
         android:layout_width="10dp"
         android:layout_height="10dp"
         android:layout_marginStart="12dp"
-        android:background="@drawable/bg_ponto_azul" />
+        android:background="@drawable/bg_ponto_azul"
+        android:backgroundTint="?attr/corDestaque" />
 
 </LinearLayout>

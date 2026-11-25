@@ -1,11 +1,13 @@
 package com.example.unifit
+import com.example.unifit.ui.notificacoes.NotificacoesActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-class HomeActivity : AppCompatActivity() {
+import com.example.unifit.ui.detalhetreino.DetalheTreinoActivity
+class HomeActivity : TelaBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

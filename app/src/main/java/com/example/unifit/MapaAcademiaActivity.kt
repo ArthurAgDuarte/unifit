@@ -1,4 +1,5 @@
 package com.example.unifit
+import com.example.unifit.ui.notificacoes.NotificacoesActivity
 
 import android.os.Bundle
 import android.widget.ImageButton
@@ -14,7 +15,7 @@ import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class MapaAcademiaActivity : AppCompatActivity() {
+class MapaAcademiaActivity : TelaBase() {
 
     private lateinit var scrollContent: ScrollView
     private lateinit var tilSearch: TextInputLayout

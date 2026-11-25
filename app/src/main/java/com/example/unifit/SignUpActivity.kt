@@ -19,7 +19,7 @@ import android.widget.Toast
 import androidx.core.widget.doAfterTextChanged
 import com.google.android.material.textfield.TextInputLayout
 
-class SignUpActivity : AppCompatActivity() {
+class SignUpActivity : TelaBase() {
 
     private lateinit var binding: ActivitySignUpBinding
 

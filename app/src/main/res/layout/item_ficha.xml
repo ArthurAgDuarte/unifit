@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Card de uma ficha na lista "Fichas Ativas" -->
+<!-- Card de uma ficha na lista "Fichas Ativas".
+     A etiqueta "Hoje" fica na mesma linha do nome, que encolhe (weight=1 + ellipsize):
+     assim ela nunca passa por cima da seta, que está fora dessa linha. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="12dp"
-    android:background="@drawable/bg_card_branco"
+    android:background="@drawable/bg_card_tema"
     android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
@@ -18,7 +21,7 @@
         android:layout_height="56dp"
         android:background="@drawable/bg_miniatura"
         android:clipToOutline="true"
-        android:contentDescription="Foto do treino"
+        android:contentDescription="@string/foto_treino"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/foto_treino_a" />
 
@@ -42,10 +45,10 @@
                 android:layout_weight="1"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:text="Treino A — Peito e Tríceps"
-                android:textColor="@color/texto_principal"
+                android:textColor="?attr/corTextoPrincipal"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Treino A — Peito e Tríceps" />
 
             <!-- Etiqueta "Hoje" -->
             <TextView
@@ -58,8 +61,8 @@
                 android:paddingTop="2dp"
                 android:paddingEnd="8dp"
                 android:paddingBottom="2dp"
-                android:text="Hoje"
-                android:textColor="@color/verde_hoje_texto"
+                android:text="@string/hoje"
+                android:textColor="?attr/corSucessoTexto"
                 android:textSize="11sp"
                 android:textStyle="bold" />
 
@@ -70,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="8 exercícios • ~45 min"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp" />
+            android:textColor="?attr/corTextoSecundario"
+            android:textSize="14sp"
+            tools:text="8 exercícios • ~45 min" />
 
     </LinearLayout>
 
@@ -80,8 +83,8 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginStart="8dp"
-        android:contentDescription="Abrir treino"
+        android:contentDescription="@string/abrir_treino"
         app:srcCompat="@drawable/ic_seta_direita"
-        app:tint="@color/texto_secundario" />
+        app:tint="?attr/corTextoSecundario" />
 
 </LinearLayout>

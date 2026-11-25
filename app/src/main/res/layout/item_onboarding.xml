@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Um slide do onboarding (mesmas views e estilos que ficavam em activity_onboarding.xml).
+     O ViewPager2 exige que a página ocupe a área toda (match_parent). -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Card da ilustração -->
+    <FrameLayout
+        android:id="@+id/cardIlustracao"
+        android:layout_width="match_parent"
+        android:layout_height="340dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_card_ilustracao">
+
+        <!-- Círculo azul com o ícone da página (tint branco para qualquer ícone) -->
+        <ImageView
+            android:id="@+id/imgIlustracao"
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_circulo_azul"
+            android:backgroundTint="?attr/corDestaque"
+            android:contentDescription="@string/onboarding_ilustracao"
+            android:padding="40dp"
+            app:srcCompat="@drawable/ic_haltere"
+            app:tint="?attr/corTextoSobreDestaque" />
+
+    </FrameLayout>
+
+    <!-- Título da página -->
+    <TextView
+        android:id="@+id/txtTituloOnboarding"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:gravity="center"
+        android:text="@string/onboarding_titulo_treinos"
+        android:textColor="?attr/corTextoPrincipal"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+
+    <!-- Descrição da página -->
+    <TextView
+        android:id="@+id/txtDescricao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="@string/onboarding_descricao_treinos"
+        android:textColor="?attr/corTextoSecundario"
+        android:textSize="15sp" />
+
+</LinearLayout>

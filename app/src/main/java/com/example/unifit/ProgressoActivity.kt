@@ -99,7 +99,7 @@ class WeightGraphView @JvmOverloads constructor(
     }
 }
 
-class ProgressoActivity : AppCompatActivity() {
+class ProgressoActivity : TelaBase() {
 
     private lateinit var btnFilterSemana: TextView
     private lateinit var btnFilterMes: TextView

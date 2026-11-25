@@ -1,76 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Tela principal: cabeçalho e menu inferior iguais aos de activity_treinos.xml;
+     o conteúdo de cada aba é um Fragment trocado no containerAbas. -->
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0B4DA2"
-    tools:context=".MainActivity">
+    android:background="?attr/corFundo"
+    tools:context=".ui.main.MainActivity">
 
-    <!-- Logo -->
+    <!-- Logo pequeno do topo -->
     <ImageView
-        android:id="@+id/imgLogo"
-        android:layout_width="104dp"
-        android:layout_height="104dp"
-        android:contentDescription="Logo UniFit"
-        app:srcCompat="@drawable/logo"
-        app:layout_constraintVertical_chainStyle="packed"
+        android:id="@+id/imgLogoTopo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_logo_pequeno"
+        android:backgroundTint="?attr/corDestaque"
+        android:contentDescription="@string/logo_descricao"
+        android:padding="6dp"
+        app:srcCompat="@drawable/ic_haltere"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/txtTitulo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <!-- Título -->
+    <!-- Título (muda conforme a aba) -->
     <TextView
-        android:id="@+id/txtTitulo"
+        android:id="@+id/txtTituloTela"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:text="UniFit"
-        android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:layout_marginStart="10dp"
+        android:text="@string/aba_treinos"
+        android:textColor="?attr/corTextoPrincipal"
+        android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/imgLogo"
-        app:layout_constraintBottom_toTopOf="@id/txtSubtitulo"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintStart_toEndOf="@id/imgLogoTopo" />
+
+    <!-- Botão de notificações (recebe o badge de não lidas na Etapa 6) -->
+    <ImageView
+        android:id="@+id/btnNotificacoes"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/bg_circulo_cinza"
+        android:backgroundTint="?attr/corSuperficie"
+        android:contentDescription="@string/notificacoes"
+        android:foreground="?attr/selectableItemBackgroundBorderless"
+        android:padding="10dp"
+        app:srcCompat="@drawable/ic_notificacao"
+        app:tint="?attr/corTextoPrincipal"
+        app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Linha abaixo do topo -->
+    <View
+        android:id="@+id/divisorTopo"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/corBorda"
+        app:layout_constraintTop_toBottomOf="@id/imgLogoTopo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Subtítulo -->
-    <TextView
-        android:id="@+id/txtSubtitulo"
-        android:layout_width="wrap_content"
+    <!-- Conteúdo da aba selecionada -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/containerAbas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?attr/corFundoTela"
+        app:layout_constraintTop_toBottomOf="@id/divisorTopo"
+        app:layout_constraintBottom_toTopOf="@id/divisorMenu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Linha acima do menu -->
+    <View
+        android:id="@+id/divisorMenu"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="?attr/corBorda"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Menu inferior -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigation"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Seu treino, sua universidade"
-        android:textColor="#CCFFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/txtTitulo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Spinner de carregamento -->
-    <ProgressBar
-        android:id="@+id/progressLoading"
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="12dp"
-        android:indeterminate="true"
-        android:indeterminateTint="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@id/txtCarregando"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Texto "Carregando..." -->
-    <TextView
-        android:id="@+id/txtCarregando"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:text="Carregando..."
-        android:textColor="#CCFFFFFF"
-        android:textSize="14sp"
+        android:background="?attr/corFundo"
+        app:itemActiveIndicatorStyle="@style/IndicadorTransparente"
+        app:itemIconTint="@color/cor_item_bottom_nav_tema"
+        app:itemTextAppearanceActive="@style/TextoBottomNav"
+        app:itemTextAppearanceInactive="@style/TextoBottomNav"
+        app:itemTextColor="@color/cor_item_bottom_nav_tema"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom_nav"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

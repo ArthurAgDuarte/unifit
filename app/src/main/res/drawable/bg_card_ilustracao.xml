@@ -2,6 +2,6 @@
 <!-- Card azul claro da ilustração -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/azul_claro" />
+    <solid android:color="?attr/corDestaqueClaro" />
     <corners android:radius="24dp" />
 </shape>

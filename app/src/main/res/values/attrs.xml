@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Cores do tema usadas pelas telas da integração Firebase.
+     Theme.UniFit define as cores normais e Theme.UniFit.AltoContraste as de alto contraste.
+     Nos XMLs: android:textColor="?attr/corTextoPrincipal" em vez de "@color/texto_principal". -->
+<resources>
+    <attr name="corFundo" format="color" />             <!-- fundo do topo e das telas -->
+    <attr name="corFundoTela" format="color" />         <!-- fundo cinza da área com rolagem -->
+    <attr name="corFundoMarca" format="color" />        <!-- fundo da Splash -->
+    <attr name="corCard" format="color" />
+    <attr name="corBorda" format="color" />             <!-- bordas e divisores -->
+    <attr name="corSuperficie" format="color" />        <!-- chips e botões redondos cinza -->
+    <attr name="corTextoPrincipal" format="color" />
+    <attr name="corTextoSecundario" format="color" />
+    <attr name="corDestaque" format="color" />          <!-- azul UniFit / amarelo -->
+    <attr name="corDestaqueClaro" format="color" />     <!-- fundo dos ícones azuis -->
+    <attr name="corTextoSobreDestaque" format="color" /><!-- texto em cima do destaque -->
+    <attr name="corTextoDica" format="color" />
+    <attr name="corSucessoFundo" format="color" />      <!-- etiqueta "Hoje", concluído -->
+    <attr name="corSucessoTexto" format="color" />
+    <attr name="corIndicadorInativo" format="color" />  <!-- bolinhas do onboarding -->
+</resources>

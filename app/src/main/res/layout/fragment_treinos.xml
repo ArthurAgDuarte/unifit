@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aba "Meus Treinos": conteúdo que ficava na área com rolagem de activity_treinos.xml
+     (o cabeçalho e o menu inferior agora ficam em activity_main.xml) -->
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollConteudo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/corFundoTela"
+    tools:context=".ui.treinos.TreinosFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/selecione_dia"
+            android:textColor="?attr/corTextoSecundario"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- NOVO: dias da semana (era o LinearLayout layoutDias); 7 colunas definidas no código -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-4dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="-4dp"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            tools:itemCount="7"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/item_dia"
+            tools:spanCount="7" />
+
+        <!-- Cabeçalho da lista de fichas -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="14dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtFichasAtivas"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="?attr/corTextoPrincipal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Fichas Ativas • Qua" />
+
+            <TextView
+                android:id="@+id/btnNovaFicha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:padding="4dp"
+                android:text="@string/nova_ficha"
+                android:textColor="?attr/corDestaque"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- NOVO: carregando as fichas do dia -->
+        <ProgressBar
+            android:id="@+id/progressFichas"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="20dp"
+            android:indeterminate="true"
+            android:indeterminateTint="?attr/corDestaque"
+            android:visibility="gone" />
+
+        <!-- NOVO: lista de fichas (era o LinearLayout layoutFichas) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFichas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_ficha" />
+
+        <!-- Aparece quando o dia não tem ficha -->
+        <TextView
+            android:id="@+id/txtSemFichas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_card_tema"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@string/sem_fichas_dia"
+            android:textColor="?attr/corTextoSecundario"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+        <!-- Atalhos: Meu Progresso e Histórico Fitness (fora do escopo: "Em breve") -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="12dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/atalhoProgresso"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_tema"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_circulo_azul_claro"
+                    android:backgroundTint="?attr/corDestaqueClaro"
+                    android:importantForAccessibility="no"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_grafico_contorno"
+                    app:tint="?attr/corDestaque" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/meu_progresso"
+                    android:textColor="?attr/corTextoPrincipal"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/atalhoHistorico"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_card_tema"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="14dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/bg_circulo_azul_claro"
+                    android:backgroundTint="?attr/corDestaqueClaro"
+                    android:importantForAccessibility="no"
+                    android:padding="8dp"
+                    app:srcCompat="@drawable/ic_calendario_contorno"
+                    app:tint="?attr/corDestaque" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/historico"
+                    android:textColor="?attr/corTextoPrincipal"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Card de dica (NOVO: id cardDica para o clique) -->
+        <LinearLayout
+            android:id="@+id/cardDica"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/bg_card_dica"
+            android:backgroundTint="?attr/corDestaqueClaro"
+            android:foreground="?attr/selectableItemBackground"
+            android:orientation="horizontal"
+            android:padding="16dp">
+
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_logo_pequeno"
+                android:backgroundTint="?attr/corDestaque"
+                android:contentDescription="@string/dica"
+                android:padding="6dp"
+                app:srcCompat="@drawable/ic_haltere"
+                app:tint="?attr/corTextoSobreDestaque" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dica_titulo"
+                    android:textColor="?attr/corDestaque"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="@string/dica_texto"
+                    android:textColor="?attr/corTextoDica"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

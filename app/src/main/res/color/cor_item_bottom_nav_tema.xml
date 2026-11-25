@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Igual ao cor_item_bottom_nav, com as cores do tema (destaque no item selecionado) -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:color="?attr/corDestaque" android:state_checked="true" />
+    <item android:color="?attr/corTextoSecundario" />
+</selector>

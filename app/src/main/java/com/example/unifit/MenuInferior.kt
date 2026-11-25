@@ -43,7 +43,7 @@ fun configurarMenuDesenhado(activity: AppCompatActivity, abaAtual: Int) {
 fun abrirAba(activity: AppCompatActivity, itemId: Int) {
     val destino = when (itemId) {
         R.id.nav_inicio -> HomeActivity::class.java // Início da Celina
-        R.id.nav_treinos -> TreinosActivity::class.java
+        R.id.nav_treinos -> com.example.unifit.ui.main.MainActivity::class.java // abre na aba Meus Treinos
         R.id.nav_aulas -> AulasActivity::class.java
         R.id.nav_mapa -> MapaAcademiaActivity::class.java // Mapa da Academia (Mapa acad)
         else -> PerfilActivity::class.java

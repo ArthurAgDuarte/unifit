@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".OnboardingActivity">
+    android:background="?attr/corFundo"
+    tools:context=".ui.onboarding.OnboardingActivity">
 
     <!-- Logo pequeno do topo -->
     <ImageView
@@ -16,7 +16,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/bg_logo_pequeno"
-        android:contentDescription="Logo UniFit"
+        android:backgroundTint="?attr/corDestaque"
+        android:contentDescription="@string/logo_descricao"
         android:padding="6dp"
         app:srcCompat="@drawable/ic_haltere"
         app:layout_constraintTop_toTopOf="parent"
@@ -28,8 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:text="UniFit"
-        android:textColor="@color/texto_principal"
+        android:text="@string/app_name"
+        android:textColor="?attr/corTextoPrincipal"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
@@ -44,83 +45,34 @@
         android:layout_marginEnd="20dp"
         android:background="?attr/selectableItemBackground"
         android:padding="8dp"
-        android:text="Pular"
-        android:textColor="@color/texto_secundario"
+        android:text="@string/onboarding_pular"
+        android:textColor="?attr/corTextoSecundario"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@id/imgLogoTopo"
         app:layout_constraintBottom_toBottomOf="@id/imgLogoTopo"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Card da ilustração -->
-    <FrameLayout
-        android:id="@+id/cardIlustracao"
+    <!-- NOVO: slides (card da ilustração, título e descrição ficam em item_onboarding.xml) -->
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPagerOnboarding"
         android:layout_width="0dp"
-        android:layout_height="340dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/bg_card_ilustracao"
+        android:layout_height="0dp"
         app:layout_constraintTop_toBottomOf="@id/imgLogoTopo"
+        app:layout_constraintBottom_toTopOf="@id/layoutIndicadores"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_onboarding" />
 
-        <!-- Círculo azul com o ícone da página -->
-        <ImageView
-            android:id="@+id/imgIlustracao"
-            android:layout_width="160dp"
-            android:layout_height="160dp"
-            android:layout_gravity="center"
-            android:background="@drawable/bg_circulo_azul"
-            android:contentDescription="Ilustração"
-            android:padding="40dp"
-            app:srcCompat="@drawable/ic_haltere" />
-
-    </FrameLayout>
-
-    <!-- Título da página -->
-    <TextView
-        android:id="@+id/txtTituloOnboarding"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="24dp"
-        android:gravity="center"
-        android:text="Organize seus treinos"
-        android:textColor="@color/texto_principal"
-        android:textSize="26sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/cardIlustracao"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Descrição da página -->
-    <TextView
-        android:id="@+id/txtDescricao"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:gravity="center"
-        android:lineSpacingExtra="4dp"
-        android:text="Monte sua ficha, acompanhe séries, cargas e evolua a cada semana."
-        android:textColor="@color/texto_secundario"
-        android:textSize="15sp"
-        app:layout_constraintTop_toBottomOf="@id/txtTituloOnboarding"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Indicadores de página (bolinhas) -->
+    <!-- Indicadores de página (bolinhas): agora fixos acima do botão, fora dos slides -->
     <LinearLayout
         android:id="@+id/layoutIndicadores"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/txtDescricao"
+        app:layout_constraintBottom_toTopOf="@id/btnComecar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
@@ -154,10 +106,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/azul_unifit"
-        android:text="Próximo"
+        android:backgroundTint="?attr/corDestaque"
+        android:text="@string/onboarding_proximo"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/corTextoSobreDestaque"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="12dp"

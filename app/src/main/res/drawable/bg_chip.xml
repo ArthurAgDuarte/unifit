@@ -2,6 +2,6 @@
 <!-- Etiqueta cinza com ícone (exercícios, tempo, nível) -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/cinza_botao" />
+    <solid android:color="?attr/corSuperficie" />
     <corners android:radius="16dp" />
 </shape>

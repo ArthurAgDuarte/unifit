@@ -1,0 +1,54 @@
+rules_version = '2';
+
+// Regras do Cloud Firestore do UniFit (escopo atual: fichas, progresso, notificações e preferências).
+// O app entra com login ANÔNIMO só para estas regras funcionarem; os dados ficam no usuário
+// de demonstração "ana" (Constantes.USUARIO_DEMO_ID).
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Qualquer usuário autenticado, inclusive o anônimo
+    function autenticado() {
+      return request.auth != null;
+    }
+
+    // ---------- Fichas de treino ----------
+    // Leitura: só autenticados. Escrita: bloqueada no app (as fichas vêm do professor/admin).
+    // O seed de debug (SeedDebug.kt) grava aqui: abra a escrita só enquanto ele roda
+    // (ver instruções no fim deste arquivo) e volte para "if false" depois.
+    match /fichas/{fichaId} {
+      allow read: if autenticado();
+      allow write: if false;
+    }
+
+    // ---------- Usuário de demonstração ----------
+    // ATENÇÃO: quando o login for implementado, troque estes dois blocos por
+    //   match /users/{uid} { allow read, write: if request.auth != null && request.auth.uid == uid; }
+    //   match /users/{uid}/{documento=**} { allow read, write: if request.auth != null && request.auth.uid == uid; }
+    // e, nas fichas, limite a leitura ao dono: resource.data.alunoId == request.auth.uid.
+    // Hoje QUALQUER usuário autenticado (até anônimo) lê e altera os dados da "ana".
+
+    // users/ana (nome, matrícula, curso)
+    match /users/ana {
+      allow read, write: if autenticado();
+    }
+
+    // users/ana/progresso/{dia}, users/ana/notificacoes/{id}, users/ana/preferencias/acessibilidade
+    match /users/ana/{documento=**} {
+      allow read, write: if autenticado();
+    }
+
+    // Todo o resto (outros usuários, outras coleções) é negado por padrão:
+    // no Firestore, o que nenhuma regra libera fica bloqueado.
+  }
+}
+
+// ---------- Como rodar o seed com estas regras ----------
+// 1. Console do Firebase > Firestore Database > Regras.
+// 2. No bloco /fichas/{fichaId}, troque temporariamente
+//      allow write: if false;
+//    por
+//      allow write: if autenticado();
+//    e clique em Publicar.
+// 3. Apague o documento fichas/treino_a (se existir) e abra o app em modo debug:
+//    a Splash roda o seed (Logcat, tag "UniFitFirebase": "Seed concluído").
+// 4. Volte a linha para "allow write: if false;" e publique de novo.

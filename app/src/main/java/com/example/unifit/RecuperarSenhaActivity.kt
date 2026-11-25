@@ -12,7 +12,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class RecuperarSenhaActivity : AppCompatActivity() {
+class RecuperarSenhaActivity : TelaBase() {
 
     companion object {
         const val EXTRA_EMAIL = "extra_email"

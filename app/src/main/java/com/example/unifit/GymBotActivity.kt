@@ -1,4 +1,5 @@
 package com.example.unifit
+import com.example.unifit.ui.notificacoes.NotificacoesActivity
 
 import android.os.Bundle
 import android.text.Editable
@@ -18,7 +19,7 @@ import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
-class GymBotActivity : AppCompatActivity() {
+class GymBotActivity : TelaBase() {
 
     private lateinit var inputLayoutMsg: TextInputLayout
     private lateinit var edtMsg: TextInputEditText

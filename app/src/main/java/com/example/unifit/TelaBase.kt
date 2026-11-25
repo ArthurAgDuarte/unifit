@@ -1,47 +1,26 @@
 package com.example.unifit
 
-import android.content.Context
-import android.content.res.Configuration
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import com.example.unifit.ui.base.BaseActivity
 
-// Chaves das opções de acessibilidade (ficam salvas mesmo depois de fechar o app)
-const val VLIBRAS = "vlibras"
-const val FONTE_MAIOR = "fonte_maior"
-const val ALTO_CONTRASTE = "alto_contraste"
+// Base das telas antigas (fora do escopo da integração Firebase).
+// A fonte maior e a recriação ao mudar a opção vêm da BaseActivity.
+// O alto contraste aqui continua sendo o ajuste de cores abaixo, porque estas telas
+// usam cores fixas nos XMLs e ficariam ilegíveis com o tema escuro.
+open class TelaBase : BaseActivity() {
 
-fun lerPreferencia(context: Context, chave: String): Boolean {
-    return context.getSharedPreferences("unifit", Context.MODE_PRIVATE).getBoolean(chave, false)
-}
+    override val usaTemaDeAltoContraste: Boolean
+        get() = false
 
-fun salvarPreferencia(context: Context, chave: String, valor: Boolean) {
-    context.getSharedPreferences("unifit", Context.MODE_PRIVATE).edit().putBoolean(chave, valor).apply()
-}
-
-// Todas as telas herdam desta classe para aplicar a "Fonte maior" e o "Alto contraste"
-open class TelaBase : AppCompatActivity() {
-    var fonteMaiorAplicada = false
-    var altoContrasteAplicado = false
-
-    override fun attachBaseContext(novoContexto: Context) {
-        // Fonte maior: aumenta em 20% o tamanho de todos os textos (sp) da tela
-        fonteMaiorAplicada = lerPreferencia(novoContexto, FONTE_MAIOR)
-        if (fonteMaiorAplicada) {
-            val configuracao = Configuration(novoContexto.resources.configuration)
-            configuracao.fontScale *= 1.2f
-            super.attachBaseContext(novoContexto.createConfigurationContext(configuracao))
-        } else {
-            super.attachBaseContext(novoContexto)
-        }
-    }
+    override val configuraBarrasDoSistema: Boolean
+        get() = false
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
 
-        altoContrasteAplicado = lerPreferencia(this, ALTO_CONTRASTE)
         if (altoContrasteAplicado) {
             val raiz = findViewById<View>(android.R.id.content)
             aplicarAltoContraste(raiz)
@@ -50,17 +29,7 @@ open class TelaBase : AppCompatActivity() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-        // Se a opção mudou na tela de Acessibilidade, recarrega esta tela para aplicar
-        if (lerPreferencia(this, FONTE_MAIOR) != fonteMaiorAplicada ||
-            lerPreferencia(this, ALTO_CONTRASTE) != altoContrasteAplicado
-        ) {
-            recreate()
-        }
-    }
-
-    // Escurece os textos cinza e clareia nada: deixa tudo com mais contraste para leitura
+    // Escurece os textos cinza: deixa tudo com mais contraste para leitura
     fun aplicarAltoContraste(view: View) {
         // Textos com cor por estado (ex.: menu inferior) ficam como estão
         if (view is TextView && !view.textColors.isStateful) {

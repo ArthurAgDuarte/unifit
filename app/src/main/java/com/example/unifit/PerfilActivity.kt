@@ -1,5 +1,6 @@
 package com.example.unifit
 
+import com.example.unifit.ui.acessibilidade.AcessibilidadeActivity
 import android.content.Intent
 import android.os.Bundle
 import android.widget.LinearLayout

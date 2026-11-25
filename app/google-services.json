@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "708314909544",
+    "project_id": "unifit-a6be7",
+    "storage_bucket": "unifit-a6be7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708314909544:android:24a4f40a84c0b59562a4dd",
+        "android_client_info": {
+          "package_name": "com.example.unifit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyApBF4zczR7GwXGrjCXa-nDCT7DTja-yUY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

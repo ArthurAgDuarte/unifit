@@ -13,7 +13,7 @@ import android.content.Intent
 import android.widget.TextView
 import android.widget.Button
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : TelaBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

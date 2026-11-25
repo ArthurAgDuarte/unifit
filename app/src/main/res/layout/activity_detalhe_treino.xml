@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".DetalheTreinoActivity">
+    android:background="?attr/corFundo"
+    tools:context=".ui.detalhetreino.DetalheTreinoActivity">
 
     <!-- Botão voltar -->
     <ImageView
@@ -16,11 +16,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg_circulo_cinza"
-        android:contentDescription="Voltar"
+        android:backgroundTint="?attr/corSuperficie"
+        android:contentDescription="@string/content_back"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:padding="10dp"
         app:srcCompat="@drawable/ic_seta_voltar"
-        app:tint="@color/texto_principal"
+        app:tint="?attr/corTextoPrincipal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -30,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Detalhe do Treino"
-        android:textColor="@color/texto_principal"
+        android:text="@string/detalhe_treino"
+        android:textColor="?attr/corTextoPrincipal"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@id/btnVoltar"
@@ -45,10 +46,10 @@
         android:layout_height="40dp"
         android:layout_marginEnd="12dp"
         android:background="?attr/selectableItemBackgroundBorderless"
-        android:contentDescription="Mais opções"
+        android:contentDescription="@string/mais_opcoes"
         android:padding="10dp"
         app:srcCompat="@drawable/ic_mais_opcoes"
-        app:tint="@color/texto_principal"
+        app:tint="?attr/corTextoPrincipal"
         app:layout_constraintTop_toTopOf="@id/btnVoltar"
         app:layout_constraintBottom_toBottomOf="@id/btnVoltar"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -59,7 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="@color/borda_card"
+        android:background="?attr/corBorda"
         app:layout_constraintTop_toBottomOf="@id/btnVoltar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -69,7 +70,7 @@
         android:id="@+id/scrollConteudo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/fundo_tela"
+        android:background="?attr/corFundoTela"
         app:layout_constraintTop_toBottomOf="@id/divisorTopo"
         app:layout_constraintBottom_toTopOf="@id/divisorRodape"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,7 +89,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card_branco"
+                android:background="@drawable/bg_card_tema"
                 android:orientation="vertical"
                 android:padding="18dp">
 
@@ -96,10 +97,10 @@
                     android:id="@+id/txtNomeTreino"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Treino A — Peito e Tríceps"
-                    android:textColor="@color/texto_principal"
+                    android:textColor="?attr/corTextoPrincipal"
                     android:textSize="22sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="Treino A — Peito e Tríceps" />
 
                 <!-- Etiquetas: exercícios, duração e nível -->
                 <HorizontalScrollView
@@ -127,18 +128,18 @@
                             <ImageView
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
-                                android:contentDescription="Exercícios"
+                                android:contentDescription="@string/exercicios"
                                 app:srcCompat="@drawable/ic_haltere"
-                                app:tint="@color/texto_secundario" />
+                                app:tint="?attr/corTextoSecundario" />
 
                             <TextView
                                 android:id="@+id/txtQtdExercicios"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="6dp"
-                                android:text="8 exercícios"
-                                android:textColor="@color/texto_secundario"
-                                android:textSize="13sp" />
+                                android:textColor="?attr/corTextoSecundario"
+                                android:textSize="13sp"
+                                tools:text="8 exercícios" />
 
                         </LinearLayout>
 
@@ -157,18 +158,18 @@
                             <ImageView
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
-                                android:contentDescription="Duração"
+                                android:contentDescription="@string/duracao"
                                 app:srcCompat="@drawable/ic_relogio"
-                                app:tint="@color/texto_secundario" />
+                                app:tint="?attr/corTextoSecundario" />
 
                             <TextView
                                 android:id="@+id/txtDuracao"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="6dp"
-                                android:text="~45 min"
-                                android:textColor="@color/texto_secundario"
-                                android:textSize="13sp" />
+                                android:textColor="?attr/corTextoSecundario"
+                                android:textSize="13sp"
+                                tools:text="~45 min" />
 
                         </LinearLayout>
 
@@ -187,18 +188,18 @@
                             <ImageView
                                 android:layout_width="14dp"
                                 android:layout_height="14dp"
-                                android:contentDescription="Nível"
+                                android:contentDescription="@string/nivel"
                                 app:srcCompat="@drawable/ic_atividade"
-                                app:tint="@color/texto_secundario" />
+                                app:tint="?attr/corTextoSecundario" />
 
                             <TextView
                                 android:id="@+id/txtNivel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="6dp"
-                                android:text="Intermediário"
-                                android:textColor="@color/texto_secundario"
-                                android:textSize="13sp" />
+                                android:textColor="?attr/corTextoSecundario"
+                                android:textSize="13sp"
+                                tools:text="Intermediário" />
 
                         </LinearLayout>
 
@@ -221,8 +222,8 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Exercícios"
-                    android:textColor="@color/texto_principal"
+                    android:text="@string/exercicios"
+                    android:textColor="?attr/corTextoPrincipal"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -230,505 +231,45 @@
                     android:id="@+id/txtQtdItens"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8 itens"
-                    android:textColor="@color/azul_unifit"
+                    android:textColor="?attr/corDestaque"
                     android:textSize="14sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="8 itens" />
 
             </LinearLayout>
 
-            <!-- Lista de exercícios -->
-            <LinearLayout
-                android:id="@+id/layoutExercicios"
+            <!-- NOVO: carregando a ficha -->
+            <ProgressBar
+                android:id="@+id/progressExercicios"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="20dp"
+                android:indeterminate="true"
+                android:indeterminateTint="?attr/corDestaque"
+                android:visibility="gone" />
+
+            <!-- NOVO: lista de exercícios (era o LinearLayout layoutExercicios) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvExercicios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <!-- Mock: aparece no preview; no app o código troca pelos dados reais -->
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Supino reto com barra"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="4 × 10 • 60 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Supino inclinado c/ halteres"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 12 • 22 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Crucifixo na máquina"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 12 • 35 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Tríceps na polia"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="4 × 12 • 25 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Tríceps francês"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 10 • 14 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Crossover"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 15 • 15 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Paralelas"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 10 • Peso corporal"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_branco"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:padding="14dp">
-
-                    <!-- Foto do exercício -->
-                    <ImageView
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:background="@drawable/bg_miniatura"
-                        android:clipToOutline="true"
-                        android:contentDescription="Foto do exercício"
-                        android:scaleType="centerCrop"
-                        app:srcCompat="@drawable/foto_exercicio" />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="14dp"
-                        android:layout_weight="1"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:ellipsize="end"
-                            android:maxLines="1"
-                            android:text="Tríceps coice"
-                            android:textColor="@color/texto_principal"
-                            android:textSize="16sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="2dp"
-                            android:text="3 × 12 • 8 kg"
-                            android:textColor="@color/texto_secundario"
-                            android:textSize="14sp" />
-
-                    </LinearLayout>
-
-                    <!-- Botão de play (vídeo do exercício) -->
-                    <ImageView
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="8dp"
-                        android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Ver vídeo do exercício"
-                        android:foreground="?attr/selectableItemBackgroundBorderless"
-                        android:padding="10dp"
-                        app:srcCompat="@drawable/ic_play" />
-
-                </LinearLayout>
-
-            </LinearLayout>
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                tools:itemCount="8"
+                tools:listitem="@layout/item_exercicio" />
 
             <!-- Aparece quando a ficha não tem exercícios -->
             <TextView
                 android:id="@+id/txtSemExercicios"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card_branco"
+                android:background="@drawable/bg_card_tema"
                 android:gravity="center"
                 android:padding="20dp"
-                android:text="Nenhum exercício ainda. Toque em ⋮ e depois em Adicionar exercício."
-                android:textColor="@color/texto_secundario"
+                android:text="@string/sem_exercicios"
+                android:textColor="?attr/corTextoSecundario"
                 android:textSize="14sp"
                 android:visibility="gone" />
 
@@ -741,7 +282,7 @@
         android:id="@+id/divisorRodape"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:background="@color/borda_card"
+        android:background="?attr/corBorda"
         app:layout_constraintBottom_toTopOf="@id/btnIniciarTreino"
         android:layout_marginBottom="16dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -755,10 +296,10 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/azul_unifit"
-        android:text="Iniciar treino"
+        android:backgroundTint="?attr/corDestaque"
+        android:text="@string/iniciar_treino"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
+        android:textColor="?attr/corTextoSobreDestaque"
         android:textSize="16sp"
         android:textStyle="bold"
         app:cornerRadius="12dp"

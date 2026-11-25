@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Um dia da semana no seletor (SEG 16, TER 17...) -->
+<!-- Um dia da semana no seletor (SEG 16, TER 17...).
+     Largura match_parent: o GridLayoutManager divide a linha em 7 colunas iguais
+     (layout_weight não funciona dentro de RecyclerView). -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="0dp"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="4dp"
     android:layout_marginEnd="4dp"
-    android:layout_weight="1"
     android:background="@drawable/bg_dia_normal"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center"
     android:orientation="vertical"
     android:paddingTop="10dp"
@@ -16,19 +19,19 @@
         android:id="@+id/txtNomeDia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SEG"
-        android:textColor="@color/texto_secundario"
+        android:textColor="?attr/corTextoSecundario"
         android:textSize="12sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="SEG" />
 
     <TextView
         android:id="@+id/txtNumeroDia"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="16"
-        android:textColor="@color/texto_principal"
+        android:textColor="?attr/corTextoPrincipal"
         android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        tools:text="16" />
 
 </LinearLayout>

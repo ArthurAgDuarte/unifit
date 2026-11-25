@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".AcessibilidadeActivity">
+    android:background="?attr/corFundo"
+    tools:context=".ui.acessibilidade.AcessibilidadeActivity">
 
     <!-- Botão voltar -->
     <ImageView
@@ -16,11 +16,12 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/bg_circulo_cinza"
-        android:contentDescription="Voltar"
+        android:backgroundTint="?attr/corSuperficie"
+        android:contentDescription="@string/content_back"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:padding="10dp"
         app:srcCompat="@drawable/ic_seta_voltar"
-        app:tint="@color/texto_principal"
+        app:tint="?attr/corTextoPrincipal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -30,8 +31,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:text="Acessibilidade"
-        android:textColor="@color/texto_principal"
+        android:text="@string/acessibilidade"
+        android:textColor="?attr/corTextoPrincipal"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="@id/btnVoltar"
@@ -44,7 +45,7 @@
         android:layout_width="0dp"
         android:layout_height="1dp"
         android:layout_marginTop="12dp"
-        android:background="@color/borda_card"
+        android:background="?attr/corBorda"
         app:layout_constraintTop_toBottomOf="@id/btnVoltar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -54,7 +55,7 @@
         android:id="@+id/scrollConteudo"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/fundo_tela"
+        android:background="?attr/corFundoTela"
         app:layout_constraintTop_toBottomOf="@id/divisorTopo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,15 +71,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="14dp"
-                android:text="Personalize o UniFit para que ele funcione melhor para você."
-                android:textColor="@color/texto_secundario"
+                android:text="@string/acessibilidade_intro"
+                android:textColor="?attr/corTextoSecundario"
                 android:textSize="14sp" />
 
             <!-- Card com as opções -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_card_branco"
+                android:background="@drawable/bg_card_tema"
                 android:orientation="vertical">
 
                 <!-- VLibras -->
@@ -95,10 +96,11 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="VLibras"
+                        android:backgroundTint="?attr/corDestaqueClaro"
+                        android:contentDescription="@string/vlibras"
                         android:padding="9dp"
                         app:srcCompat="@drawable/ic_mao"
-                        app:tint="@color/azul_unifit" />
+                        app:tint="?attr/corDestaque" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -111,8 +113,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="VLibras"
-                            android:textColor="@color/texto_principal"
+                            android:text="@string/vlibras"
+                            android:textColor="?attr/corTextoPrincipal"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -120,8 +122,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Tradução automática dos conteúdos para Libras"
-                            android:textColor="@color/texto_secundario"
+                            android:text="@string/vlibras_descricao"
+                            android:textColor="?attr/corTextoSecundario"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -130,7 +132,7 @@
                         android:id="@+id/switchVlibras"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        tools:checked="true" />
 
                 </LinearLayout>
 
@@ -139,7 +141,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@color/borda_card" />
+                    android:background="?attr/corBorda" />
 
                 <!-- Fonte maior -->
                 <LinearLayout
@@ -155,10 +157,11 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Fonte maior"
+                        android:backgroundTint="?attr/corDestaqueClaro"
+                        android:contentDescription="@string/fonte_maior"
                         android:padding="10dp"
                         app:srcCompat="@drawable/ic_fonte"
-                        app:tint="@color/azul_unifit" />
+                        app:tint="?attr/corDestaque" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -171,8 +174,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Fonte maior"
-                            android:textColor="@color/texto_principal"
+                            android:text="@string/fonte_maior"
+                            android:textColor="?attr/corTextoPrincipal"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -180,8 +183,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Aumenta o tamanho dos textos em 20%"
-                            android:textColor="@color/texto_secundario"
+                            android:text="@string/fonte_maior_descricao"
+                            android:textColor="?attr/corTextoSecundario"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -198,7 +201,7 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:background="@color/borda_card" />
+                    android:background="?attr/corBorda" />
 
                 <!-- Alto contraste -->
                 <LinearLayout
@@ -214,10 +217,11 @@
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:background="@drawable/bg_circulo_azul_claro"
-                        android:contentDescription="Alto contraste"
+                        android:backgroundTint="?attr/corDestaqueClaro"
+                        android:contentDescription="@string/alto_contraste"
                         android:padding="10dp"
                         app:srcCompat="@drawable/ic_contraste"
-                        app:tint="@color/azul_unifit" />
+                        app:tint="?attr/corDestaque" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -230,8 +234,8 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Alto contraste"
-                            android:textColor="@color/texto_principal"
+                            android:text="@string/alto_contraste"
+                            android:textColor="?attr/corTextoPrincipal"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -239,8 +243,8 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="2dp"
-                            android:text="Cores com maior contraste para leitura"
-                            android:textColor="@color/texto_secundario"
+                            android:text="@string/alto_contraste_descricao"
+                            android:textColor="?attr/corTextoSecundario"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -249,7 +253,7 @@
                         android:id="@+id/switchAltoContraste"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true" />
+                        tools:checked="true" />
 
                 </LinearLayout>
 
@@ -260,8 +264,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_marginBottom="14dp"
-                android:text="Pré-visualização"
-                android:textColor="@color/texto_principal"
+                android:text="@string/previa"
+                android:textColor="?attr/corTextoPrincipal"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -278,8 +282,8 @@
                     android:id="@+id/txtTituloPrevia"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Agende sua aula experimental amanhã"
-                    android:textColor="#FFFFFF"
+                    android:text="@string/previa_titulo"
+                    android:textColor="?attr/corTextoSobreDestaque"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -288,8 +292,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Com alto contraste ativo, textos e botões ficam mais fáceis de ler."
-                    android:textColor="#FFFFFF"
+                    android:text="@string/previa_texto_contraste"
+                    android:textColor="?attr/corTextoSobreDestaque"
                     android:textSize="14sp" />
 
             </LinearLayout>

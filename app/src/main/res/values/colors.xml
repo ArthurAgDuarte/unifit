@@ -92,4 +92,11 @@
     <color name="icon_bg">#F1F2F4</color>
     <color name="white_gustavo">#FFFFFF</color>
     <color name="black_gustavo">#000000</color>
+
+    <!-- ===== Alto contraste (Theme.UniFit.AltoContraste) ===== -->
+    <color name="contraste_fundo">#000000</color>
+    <color name="contraste_superficie">#262626</color>
+    <color name="contraste_texto">#FFFFFF</color>
+    <color name="contraste_destaque">#FFD600</color>
+    <color name="contraste_indicador">#8A8A8A</color>
 </resources>

@@ -2,6 +2,6 @@
 <!-- Etiqueta verde "Hoje" -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/verde_hoje_fundo" />
+    <solid android:color="?attr/corSucessoFundo" />
     <corners android:radius="10dp" />
 </shape>

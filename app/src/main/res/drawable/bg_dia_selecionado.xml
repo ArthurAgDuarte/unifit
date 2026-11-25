@@ -2,6 +2,6 @@
 <!-- Dia da semana selecionado -->
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
-    <solid android:color="@color/azul_unifit" />
+    <solid android:color="?attr/corDestaque" />
     <corners android:radius="12dp" />
 </shape>

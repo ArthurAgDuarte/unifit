@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Aba Perfil (por enquanto só a opção Acessibilidade, no mesmo estilo de activity_perfil.xml) -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/corFundoTela"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_tema"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/opcaoAcessibilidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:gravity="center_vertical"
+            android:minHeight="56dp"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:importantForAccessibility="no"
+                app:srcCompat="@drawable/ic_mao"
+                app:tint="?attr/corTextoPrincipal" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:layout_weight="1"
+                android:text="@string/acessibilidade"
+                android:textColor="?attr/corTextoPrincipal"
+                android:textSize="15sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:contentDescription="@string/abrir"
+                app:srcCompat="@drawable/ic_seta_direita"
+                app:tint="?attr/corTextoSecundario" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

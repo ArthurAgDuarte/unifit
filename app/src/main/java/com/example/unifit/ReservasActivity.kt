@@ -1,4 +1,5 @@
 package com.example.unifit
+import com.example.unifit.ui.notificacoes.NotificacoesActivity
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -6,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
-class ReservasActivity : AppCompatActivity() {
+class ReservasActivity : TelaBase() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()

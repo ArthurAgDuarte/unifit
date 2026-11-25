@@ -8,7 +8,63 @@
         <item name="colorOnPrimaryContainer">@color/azul_unifit</item>
     </style>
 
-    <style name="Theme.UniFit" parent="Base.Theme.UniFit" />
+    <!-- Cores do tema normal (ver values/attrs.xml). Ficam aqui, e não no Base,
+         porque values-night/themes.xml redefine o Base. -->
+    <style name="Theme.UniFit" parent="Base.Theme.UniFit">
+        <item name="corFundo">@color/white</item>
+        <item name="corFundoTela">@color/fundo_tela</item>
+        <item name="corFundoMarca">@color/azul_unifit</item>
+        <item name="corCard">@color/white</item>
+        <item name="corBorda">@color/borda_card</item>
+        <item name="corSuperficie">@color/cinza_botao</item>
+        <item name="corTextoPrincipal">@color/texto_principal</item>
+        <item name="corTextoSecundario">@color/texto_secundario</item>
+        <item name="corDestaque">@color/azul_unifit</item>
+        <item name="corDestaqueClaro">@color/azul_claro</item>
+        <item name="corTextoSobreDestaque">@color/white</item>
+        <item name="corTextoDica">@color/azul_texto_dica</item>
+        <item name="corSucessoFundo">@color/verde_hoje_fundo</item>
+        <item name="corSucessoTexto">@color/verde_hoje_texto</item>
+        <item name="corIndicadorInativo">@color/cinza_indicador</item>
+    </style>
+
+    <!-- Alto contraste: fundo preto, texto branco e destaque amarelo.
+         A BaseActivity aplica este tema (setTheme) quando a opção está ligada. -->
+    <style name="Theme.UniFit.AltoContraste">
+        <item name="corFundo">@color/contraste_fundo</item>
+        <item name="corFundoTela">@color/contraste_fundo</item>
+        <item name="corFundoMarca">@color/contraste_fundo</item>
+        <item name="corCard">@color/contraste_fundo</item>
+        <item name="corBorda">@color/contraste_texto</item>
+        <item name="corSuperficie">@color/contraste_superficie</item>
+        <item name="corTextoPrincipal">@color/contraste_texto</item>
+        <item name="corTextoSecundario">@color/contraste_texto</item>
+        <item name="corDestaque">@color/contraste_destaque</item>
+        <item name="corDestaqueClaro">@color/contraste_superficie</item>
+        <item name="corTextoSobreDestaque">@color/contraste_fundo</item>
+        <item name="corTextoDica">@color/contraste_texto</item>
+        <item name="corSucessoFundo">@color/contraste_destaque</item>
+        <item name="corSucessoTexto">@color/contraste_fundo</item>
+        <item name="corIndicadorInativo">@color/contraste_indicador</item>
+
+        <!-- Componentes Material (switches, Snackbar, diálogos) -->
+        <item name="colorPrimary">@color/contraste_destaque</item>
+        <item name="colorOnPrimary">@color/contraste_fundo</item>
+        <item name="colorPrimaryContainer">@color/contraste_superficie</item>
+        <item name="colorOnPrimaryContainer">@color/contraste_destaque</item>
+        <item name="colorSurface">@color/contraste_fundo</item>
+        <item name="colorOnSurface">@color/contraste_texto</item>
+        <item name="colorOnSurfaceVariant">@color/contraste_texto</item>
+        <item name="colorSurfaceContainerHighest">@color/contraste_superficie</item>
+        <item name="colorOutline">@color/contraste_texto</item>
+        <item name="colorSurfaceInverse">@color/contraste_texto</item>
+        <item name="colorOnSurfaceInverse">@color/contraste_fundo</item>
+        <item name="colorPrimaryInverse">@color/azul_unifit</item>
+        <item name="android:colorBackground">@color/contraste_fundo</item>
+        <item name="android:windowBackground">@color/contraste_fundo</item>
+        <item name="android:textColorPrimary">@color/contraste_texto</item>
+        <item name="android:textColorSecondary">@color/contraste_texto</item>
+    </style>
 
     <!-- ===== Vindo de: Detalhe do Espaço ===== -->
     <style name="Theme.UniFit.Espaco" parent="Theme.Material3.Light.NoActionBar">

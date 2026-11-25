@@ -11,10 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.UniFit">
+        <!-- ===== Integração Firebase (pacote ui) ===== -->
         <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:windowSoftInputMode="adjustResize">
+            android:name=".ui.splash.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,15 +22,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OnboardingActivity"
-            android:exported="false"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".TreinosActivity"
+            android:name=".ui.onboarding.OnboardingActivity"
             android:exported="false" />
         <activity
-            android:name=".DetalheTreinoActivity"
+            android:name=".ui.main.MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.detalhetreino.DetalheTreinoActivity"
+            android:exported="false" />
+        <!-- ===== Telas antigas ===== -->
         <activity
             android:name=".ExecucaoTreinoActivity"
             android:exported="false" />
@@ -41,10 +41,10 @@
             android:name=".PerfilActivity"
             android:exported="false" />
         <activity
-            android:name=".NotificacoesActivity"
+            android:name=".ui.notificacoes.NotificacoesActivity"
             android:exported="false" />
         <activity
-            android:name=".AcessibilidadeActivity"
+            android:name=".ui.acessibilidade.AcessibilidadeActivity"
             android:exported="false" />
         <activity
             android:name=".EditarDadosActivity"

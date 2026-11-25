@@ -1,4 +1,5 @@
 package com.example.unifit
+import com.example.unifit.ui.notificacoes.NotificacoesActivity
 
 import android.app.DatePickerDialog
 import android.os.Bundle

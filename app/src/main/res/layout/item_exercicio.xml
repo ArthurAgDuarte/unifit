@@ -2,10 +2,12 @@
 <!-- Card de um exercício na tela de detalhe -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="10dp"
-    android:background="@drawable/bg_card_branco"
+    android:background="@drawable/bg_card_tema"
+    android:foreground="?attr/selectableItemBackground"
     android:gravity="center_vertical"
     android:orientation="horizontal"
     android:padding="14dp">
@@ -17,7 +19,7 @@
         android:layout_height="48dp"
         android:background="@drawable/bg_miniatura"
         android:clipToOutline="true"
-        android:contentDescription="Foto do exercício"
+        android:contentDescription="@string/foto_exercicio"
         android:scaleType="centerCrop"
         app:srcCompat="@drawable/foto_exercicio" />
 
@@ -34,21 +36,36 @@
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="1"
-            android:text="Supino reto com barra"
-            android:textColor="@color/texto_principal"
+            android:textColor="?attr/corTextoPrincipal"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Supino reto com barra" />
 
         <TextView
             android:id="@+id/txtSeriesExercicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
-            android:text="4 × 10 • 60 kg"
-            android:textColor="@color/texto_secundario"
-            android:textSize="14sp" />
+            android:textColor="?attr/corTextoSecundario"
+            android:textSize="14sp"
+            tools:text="4 × 10 • 60 kg" />
 
     </LinearLayout>
+
+    <!-- NOVO: marca de "concluído hoje" (escondida por padrão) -->
+    <ImageView
+        android:id="@+id/imgConcluido"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_circulo_verde_claro"
+        android:backgroundTint="?attr/corSucessoFundo"
+        android:contentDescription="@string/concluido"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_check"
+        app:tint="?attr/corSucessoTexto"
+        tools:visibility="visible" />
 
     <!-- Botão de play (vídeo do exercício) -->
     <ImageView
@@ -57,9 +74,11 @@
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/bg_circulo_azul_claro"
-        android:contentDescription="Ver vídeo do exercício"
+        android:backgroundTint="?attr/corDestaqueClaro"
+        android:contentDescription="@string/ver_video_exercicio"
         android:foreground="?attr/selectableItemBackgroundBorderless"
         android:padding="10dp"
-        app:srcCompat="@drawable/ic_play" />
+        app:srcCompat="@drawable/ic_play"
+        app:tint="?attr/corDestaque" />
 
 </LinearLayout>
