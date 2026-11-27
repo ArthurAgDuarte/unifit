@@ -1,5 +1,6 @@
 package com.example.unifit
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -10,7 +11,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.doAfterTextChanged
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
@@ -54,6 +54,13 @@ class GerenciarUsuariosActivity : TelaBase() {
         }
         fabNovoUsuario.setOnClickListener { cadastrarUsuario() }
 
+        mostrarFiltros()
+        mostrarUsuarios()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Atualiza a lista e os filtros ao voltar da tela Detalhe do Usuário (RF22.5)
         mostrarFiltros()
         mostrarUsuarios()
     }
@@ -109,36 +116,26 @@ class GerenciarUsuariosActivity : TelaBase() {
             txtStatus.setBackgroundResource(if (usuario.ativo) R.drawable.bg_status_ativo else R.drawable.bg_status_inativo)
             item.findViewById<View>(R.id.imgSetaItem).visibility = View.GONE
 
-            item.setOnClickListener { mostrarOpcoes(usuario) }
+            // Clique no card do usuário abre a tela Detalhe do Usuário (RF22.5)
+            item.setOnClickListener { abrirDetalheUsuario(usuario) }
             layoutUsuarios.addView(item)
         }
     }
 
-    fun mostrarOpcoes(usuario: Usuario) {
-        MaterialAlertDialogBuilder(this)
-            .setTitle(usuario.nome)
-            .setMessage("${usuario.detalhe}\nStatus: ${if (usuario.ativo) "Ativo" else "Inativo"}")
-            .setNegativeButton("Fechar", null)
-            .setPositiveButton(if (usuario.ativo) "Desativar" else "Ativar") { _, _ ->
-                usuario.ativo = !usuario.ativo
-                mostrarFiltros()
-                mostrarUsuarios()
-            }
-            .show()
+    fun abrirDetalheUsuario(usuario: Usuario) {
+        val indice = listaUsuarios.indexOf(usuario)
+        val intent = Intent(this, DetalheUsuarioActivity::class.java).apply {
+            putExtra("indiceUsuario", indice)
+            putExtra("nome", usuario.nome)
+            putExtra("detalhe", usuario.detalhe)
+            putExtra("professor", usuario.professor)
+            putExtra("ativo", usuario.ativo)
+        }
+        startActivity(intent)
     }
 
-    // Botão flutuante "+" (RF22.4)
+    // Botão flutuante "+" (RF22.4, RF22.6): abre a tela Novo Usuário
     fun cadastrarUsuario() {
-        mostrarDialogoNovoItem(
-            this, "Novo usuário", "Nome completo", "Matrícula (ou modalidade, se professor)", "Papel",
-            arrayOf("Aluno", "Professor")
-        ) { nome, matriculaOuModalidade, papel ->
-            val professor = papel == "Professor"
-            val detalhe = if (professor) "Professor • $matriculaOuModalidade" else "Mat. $matriculaOuModalidade • Aluno"
-            listaUsuarios.add(0, Usuario(nome, detalhe, professor, true))
-            Toast.makeText(this, "Usuário cadastrado", Toast.LENGTH_SHORT).show()
-            mostrarFiltros()
-            mostrarUsuarios()
-        }
+        abrirTela(this, NovoUsuarioActivity::class.java)
     }
 }

@@ -156,16 +156,15 @@ class ExerciciosAparelhosActivity : TelaBase() {
         menu.show()
     }
 
+    override fun onResume() {
+        super.onResume()
+        mostrarItens()
+    }
+
     // Botão "+": cadastra exercício ou aparelho conforme a aba (RF24.2)
     fun cadastrarItem() {
         if (!abaAparelhos) {
-            mostrarDialogoNovoItem(this, "Novo exercício", "Nome do exercício", "Equipamento", "Grupo muscular",
-                gruposMusculares
-            ) { nome, equipamento, grupo ->
-                listaExerciciosCatalogo.add(0, ExercicioCatalogo(nome, grupo, equipamento))
-                Toast.makeText(this, "Exercício cadastrado", Toast.LENGTH_SHORT).show()
-                mostrarItens()
-            }
+            abrirTela(this, NovoExercicioActivity::class.java)
         } else {
             mostrarDialogoNovoItem(this, "Novo aparelho", "Nome do aparelho", "Área / sala", "Status",
                 arrayOf("Disponível", "Em manutenção")

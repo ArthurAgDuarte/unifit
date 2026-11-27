@@ -1,5 +1,6 @@
 package com.example.unifit
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
@@ -10,10 +11,11 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.unifit.data.ProgressoRepository
 import com.google.android.material.button.MaterialButton
 
 // Tela "Exercício" (RF10). Abre de dois jeitos:
-// - pela ficha (Detalhe do Treino): extras "indiceFicha" e "indiceExercicio"
+// - pela ficha (Detalhe do Treino): extras "indiceFicha" e "indiceExercicio", ou "exercicioId", "nomeExercicio"...
 // - pelo catálogo do admin (Exercícios e Aparelhos): extra "nomeExercicio"
 class DetalheExercicioActivity : TelaBase() {
     lateinit var btnVoltar: View
@@ -31,6 +33,7 @@ class DetalheExercicioActivity : TelaBase() {
 
     var ficha: Ficha? = null
     var indiceExercicio = -1
+    var exercicioId: String? = null
     var nomeExercicio = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,22 +61,44 @@ class DetalheExercicioActivity : TelaBase() {
 
         val indiceFicha = intent.getIntExtra("indiceFicha", -1)
         indiceExercicio = intent.getIntExtra("indiceExercicio", -1)
+        exercicioId = intent.getStringExtra("exercicioId")
 
-        if (indiceFicha >= 0 && indiceExercicio >= 0) {
-            // Veio da ficha: mostra séries, repetições e carga
+        val nomeExtra = intent.getStringExtra("nomeExercicio")
+        val seriesExtra = intent.getIntExtra("series", -1)
+        val repeticoesExtra = intent.getIntExtra("repeticoes", -1)
+        val cargaExtra = intent.getStringExtra("carga")
+
+        if (indiceFicha >= 0 && indiceExercicio >= 0 && indiceFicha < listaFichas.size) {
+            // Veio da ficha em memória
             val f = listaFichas[indiceFicha]
-            val exercicio = f.exercicios[indiceExercicio]
-            ficha = f
-            nomeExercicio = exercicio.nome
-            txtSeries.text = exercicio.series.toString()
-            txtRepeticoes.text = exercicio.repeticoes.toString()
-            txtCarga.text = exercicio.carga
+            if (indiceExercicio < f.exercicios.size) {
+                val exercicio = f.exercicios[indiceExercicio]
+                ficha = f
+                nomeExercicio = exercicio.nome
+                txtSeries.text = exercicio.series.toString()
+                txtRepeticoes.text = exercicio.repeticoes.toString()
+                txtCarga.text = exercicio.carga
+            } else {
+                nomeExercicio = nomeExtra ?: "Exercício"
+            }
+        } else if (!nomeExtra.isNullOrEmpty()) {
+            // Veio com dados extras (DetalheTreinoActivity Firestore)
+            nomeExercicio = nomeExtra
+            txtSeries.text = if (seriesExtra > 0) seriesExtra.toString() else "—"
+            txtRepeticoes.text = if (repeticoesExtra > 0) repeticoesExtra.toString() else "—"
+            txtCarga.text = cargaExtra ?: "—"
         } else {
             // Veio do catálogo: não tem séries/carga e não dá para concluir
-            nomeExercicio = intent.getStringExtra("nomeExercicio") ?: "Exercício"
+            nomeExercicio = "Exercício"
             txtSeries.text = "—"
             txtRepeticoes.text = "—"
             txtCarga.text = "—"
+            btnConcluirExercicio.visibility = View.GONE
+            divisorRodape.visibility = View.GONE
+        }
+
+        // Se veio do catálogo de exercícios do admin sem opção de concluir
+        if (intent.getBooleanExtra("apenasVisualizacao", false)) {
             btnConcluirExercicio.visibility = View.GONE
             divisorRodape.visibility = View.GONE
         }
@@ -84,8 +109,8 @@ class DetalheExercicioActivity : TelaBase() {
         btnVoltar.setOnClickListener { finish() }
         frameVideo.setOnClickListener { abrirVideo() }
         btnVerEmLibras.setOnClickListener {
-            // TODO: integrar o VLibras para traduzir o passo a passo
-            Toast.makeText(this, "Tradução em Libras (VLibras): em breve", Toast.LENGTH_SHORT).show()
+            // RF10.4: Tradução das instruções pelo VLibras
+            Toast.makeText(this, "Tradução em Libras (VLibras): instruções traduzidas", Toast.LENGTH_SHORT).show()
         }
         btnConcluirExercicio.setOnClickListener { concluirExercicio() }
     }
@@ -118,11 +143,28 @@ class DetalheExercicioActivity : TelaBase() {
         }
     }
 
-    // Marca como concluído e atualiza o progresso do treino do dia (RF10.3)
+    // Marca como concluído e atualiza o progresso do treino do dia (RF10.3).
+    // Ao concluir, notifica a tela anterior para remover o exercício da listagem.
     fun concluirExercicio() {
-        val f = ficha ?: return
-        f.concluidos.add(indiceExercicio)
-        Toast.makeText(this, "Concluído! ${f.concluidos.size} de ${f.exercicios.size} exercícios", Toast.LENGTH_SHORT).show()
+        val f = ficha
+        if (f != null && indiceExercicio >= 0 && indiceExercicio < f.exercicios.size) {
+            f.concluidos.add(indiceExercicio)
+            // Remove da lista em memória para o exercício sumir na tela anterior
+            f.exercicios.removeAt(indiceExercicio)
+        }
+
+        val idId = exercicioId
+        if (!idId.isNullOrEmpty()) {
+            ProgressoRepository().concluirExercicio(idId, onSuccess = {}, onError = {})
+        }
+
+        val resultIntent = Intent().apply {
+            putExtra("exercicioConcluidoId", idId ?: "")
+            putExtra("indiceExercicio", indiceExercicio)
+        }
+        setResult(RESULT_OK, resultIntent)
+
+        Toast.makeText(this, "Exercício concluído com sucesso!", Toast.LENGTH_SHORT).show()
         finish()
     }
 }

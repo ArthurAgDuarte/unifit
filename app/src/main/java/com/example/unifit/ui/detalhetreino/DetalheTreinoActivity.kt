@@ -1,21 +1,26 @@
 package com.example.unifit.ui.detalhetreino
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.StringRes
-import com.example.unifit.ui.base.BaseActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.unifit.DetalheExercicioActivity
 import com.example.unifit.R
 import com.example.unifit.data.FichaRepository
 import com.example.unifit.data.ProgressoRepository
 import com.example.unifit.databinding.ActivityDetalheTreinoBinding
 import com.example.unifit.model.Ficha
+import com.example.unifit.model.ItemExercicio
 import com.example.unifit.model.Progresso
+import com.example.unifit.ui.base.BaseActivity
 import com.example.unifit.util.Constantes
+import com.example.unifit.util.Formatos
 import com.example.unifit.util.Mensagens
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.Timestamp
@@ -31,6 +36,26 @@ class DetalheTreinoActivity : BaseActivity() {
     private lateinit var fichaId: String
     private var ficha: Ficha? = null
     private var progressoDeHoje: Progresso? = null
+
+    private val launcherExercicio = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ) { result ->
+        if (result.resultCode == RESULT_OK) {
+            val idConcluido = result.data?.getStringExtra("exercicioConcluidoId")
+            if (!idConcluido.isNullOrEmpty()) {
+                val listaConcluidos = progressoDeHoje?.exerciciosConcluidos.orEmpty().toMutableList()
+                if (!listaConcluidos.contains(idConcluido)) {
+                    listaConcluidos.add(idConcluido)
+                }
+                progressoDeHoje = (progressoDeHoje ?: Progresso()).copy(
+                    exerciciosConcluidos = listaConcluidos
+                )
+                mostrarExercicios()
+            } else {
+                carregarProgresso()
+            }
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,8 +78,8 @@ class DetalheTreinoActivity : BaseActivity() {
         }
 
         exercicioAdapter = ExercicioAdapter(
-            aoTocar = { mostrarMensagem(R.string.em_breve) },     // Detalhe do Exercício: fora do escopo
-            aoTocarPlay = { mostrarMensagem(R.string.em_breve) }
+            aoTocar = { itemExercicio -> abrirDetalheExercicio(itemExercicio) },
+            aoTocarPlay = { itemExercicio -> abrirDetalheExercicio(itemExercicio) }
         )
         binding.rvExercicios.layoutManager = LinearLayoutManager(this)
         binding.rvExercicios.adapter = exercicioAdapter
@@ -65,6 +90,25 @@ class DetalheTreinoActivity : BaseActivity() {
         binding.btnIniciarTreino.isEnabled = false // libera depois que a ficha carregar
 
         carregarFicha()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (this::fichaId.isInitialized && ficha != null) {
+            carregarProgresso()
+        }
+    }
+
+    private fun abrirDetalheExercicio(item: ItemExercicio) {
+        val intent = Intent(this, DetalheExercicioActivity::class.java).apply {
+            putExtra(Constantes.EXTRA_FICHA_ID, fichaId)
+            putExtra("exercicioId", item.exercicioId)
+            putExtra("nomeExercicio", item.nome)
+            putExtra("series", item.series)
+            putExtra("repeticoes", item.repeticoes)
+            putExtra("carga", Formatos.carga(this@DetalheTreinoActivity, item.cargaKg))
+        }
+        launcherExercicio.launch(intent)
     }
 
     // 1) ficha  2) progresso de hoje (para marcar os concluídos e o estado do botão)
@@ -129,8 +173,9 @@ class DetalheTreinoActivity : BaseActivity() {
         val fichaAtual = ficha ?: return
         val concluidos = progressoDeHoje?.exerciciosConcluidos.orEmpty().toSet()
 
-        // O repositório já devolve os exercícios ordenados por "ordem"
-        val linhas = fichaAtual.exercicios.map { ExercicioLinha(it, it.exercicioId in concluidos) }
+        // Filtra para remover os exercícios concluídos da exibição na tela
+        val exerciciosPendentes = fichaAtual.exercicios.filter { it.exercicioId !in concluidos }
+        val linhas = exerciciosPendentes.map { ExercicioLinha(it, false) }
         exercicioAdapter.submitList(linhas)
 
         binding.progressExercicios.visibility = View.GONE

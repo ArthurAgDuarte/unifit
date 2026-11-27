@@ -66,10 +66,19 @@
             android:name=".GerenciarUsuariosActivity"
             android:exported="false" />
         <activity
+            android:name=".DetalheUsuarioActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NovoUsuarioActivity"
+            android:exported="false" />
+        <activity
             android:name=".GerenciarAulasActivity"
             android:exported="false" />
         <activity
             android:name=".ExerciciosAparelhosActivity"
+            android:exported="false" />
+        <activity
+            android:name=".NovoExercicioActivity"
             android:exported="false" />
         <!-- ===== Telas dos colegas (ainda sem navegação) ===== -->
         <!-- UniFit - Gustavo -->
