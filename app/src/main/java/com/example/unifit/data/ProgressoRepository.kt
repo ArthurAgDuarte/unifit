@@ -42,4 +42,22 @@ class ProgressoRepository {
             .addOnSuccessListener { onSuccess() }
             .addOnFailureListener { erro -> onError(erro) }
     }
+
+    // Adiciona o id do exercício concluído à lista exerciciosConcluidos do progresso de hoje
+    fun concluirExercicio(
+        exercicioId: String,
+        onSuccess: () -> Unit,
+        onError: (Exception) -> Unit
+    ) {
+        documentoDeHoje()
+            .update("exerciciosConcluidos", FieldValue.arrayUnion(exercicioId))
+            .addOnSuccessListener { onSuccess() }
+            .addOnFailureListener {
+                val dados = mapOf("exerciciosConcluidos" to listOf(exercicioId))
+                documentoDeHoje()
+                    .set(dados, SetOptions.merge())
+                    .addOnSuccessListener { onSuccess() }
+                    .addOnFailureListener { erro -> onError(erro) }
+            }
+    }
 }
